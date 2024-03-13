@@ -13,21 +13,21 @@ def pending_payments(request):
 
 
 
-# def PendingPaymentsPartial(request):
-#     access_token = request.session.get('access_token')
-#     if access_token is not None:
-#         response = ApiHelper.GetPendingBookingPayments(access_token)
-#         if response.get('detail') is not None:
-#             for key in list(request.session.keys()):
-#                 del request.session[key]
-#             return redirect('the_admin:login')      
+def PendingPaymentsPartial(request):
+    access_token = request.session.get('access_token')
+    if access_token is not None:
+        response = ApiHelper.GetPendingBookingPayments(access_token)
+        if response.get('detail') is not None:
+            for key in list(request.session.keys()):
+                del request.session[key]
+            return redirect('the_admin:login')      
         
-#         result = TimeSinceFormatter(response['Payload'])
+        result = TimeSinceFormatter(response['Payload'])
         
-#         content = {"bookingPayments": response['Payload']}
-#         return render(request, 'admin/transactions/_pendingPaymentList.html', content)
+        content = {"bookingPayments": response['Payload']}
+        return render(request, 'admin/transactions/_pendingPaymentList.html', content)
     
-#     return redirect('the_admin:login')      
+    return redirect('the_admin:login')      
 
 
 

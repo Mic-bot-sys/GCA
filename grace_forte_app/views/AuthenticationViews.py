@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.db import transaction
 from grace_forte_app.models.AccountInformationModel import AccountInformation
 from grace_forte_app.models.ProfileModel import Profile
-from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -85,7 +85,7 @@ def register(request):
 
 
 
-
+@login_required
 def logoutUser(request):
         logout(request)
         return redirect("authentication:auth")
