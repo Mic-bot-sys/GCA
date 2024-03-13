@@ -1,0 +1,617 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% load humanize %}
+
+
+{% block title %}
+<title>Pending Bookings</title>
+{% endblock %}
+
+{% block head %}
+    {% include 'partials/_servicesHeadSectionPartial.html' %}
+      <!-- jvectormap  -->
+      <link rel="stylesheet" href="https://bootstrapdemos.wrappixel.com/spike/dist/assets/libs/jvectormap/jquery-jvectormap.css">
+      
+      <!-- Core Css -->
+      <link rel="stylesheet" href="https://bootstrapdemos.wrappixel.com/spike/dist/assets/css/styles.css" />
+
+{% endblock %}
+
+
+{% block openbodyclass %}
+    <body data-rsssl="1" class="page-template page-template-elementor_header_footer page page-id-1961 page-parent wp-custom-logo elementor-default elementor-template-full-width elementor-kit-3 elementor-page elementor-page-1961">
+{% endblock %}
+
+{% block content %}
+        <div data-elementor-type="wp-page" data-elementor-id="1961" class="elementor elementor-1961" data-elementor-post-type="page">
+
+            <section class="elementor-section elementor-top-section elementor-element elementor-element-3acb1acc elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                data-id="3acb1acc"
+                data-element_type="section" >
+               
+               <div class="elementor-container elementor-column-gap-no">
+    <div class="container mt-5 mb-5">
+        <div class="col-12" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
+          <div class="card mb-0">
+            <div class="card-body">
+              <div class="d-md-flex justify-content-between mb-9">
+                <div class="mb-9 mb-md-0">
+                  <h5 class="card-title">Pending Booking Transactions</h5>
+                  <p class="card-subtitle mb-0">This contains the list of all the training enrollment that has not been approved yet</p>
+                </div>
+                <div class="d-flex align-items-center">
+                  <form class="position-relative me-3 w-100">
+                    <input type="text" class="form-control search-chat py-2 ps-5" id="text-srh"
+                      placeholder="Search">
+                    <i
+                      class="ti ti-search position-absolute top-50 start-0 translate-middle-y fs-6 text-dark ms-3"></i>
+                  </form>
+                </div>
+              </div>
+              <div class="table-responsive overflow-x-auto latest-reviews-table">
+                <table class="table mb-0 align-middle text-nowrap">
+                  <thead class="text-dark fs-4">
+                    <tr>
+                      <th>Products</th>
+                      <th>Customer</th>
+                      <th>Reviews</th>
+                      <th>Status</th>
+                      <th>Time</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="d-flex align-items-center product text-truncate">
+                          <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/products/product-5.png" class="img-fluid flex-shrink-0"
+                            width="60" height="60">
+                          <div class="ms-3 product-title">
+                            <h6 class="fs-4 mb-0 text-truncate-2">iPhone 13 pro max-Pacific Blue-128GB storage</h6>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="d-flex align-items-center text-truncate">
+                          <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/profile/user-2.jpg" alt=""
+                            class="img-fluid rounded-circle flex-shrink-0" width="32" height="32">
+                          <div class="ms-7">
+                            <h5 class="mb-1 fs-4">Arlene McCoy</h5>
+                            <h6 class="mb-0 fw-light">macoy@arlene.com</h6>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="product-reviews">
+                          <ul class="list-unstyled d-flex align-items-center mb-0">
+                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
+                                  class="text-warning"></iconify-icon></a></li>
+                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
+                                  class="text-warning"></iconify-icon></a></li>
+                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
+                                  class="text-warning"></iconify-icon></a></li>
+                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon
+                                  icon="solar:star-bold-duotone" class="text-warning"></iconify-icon></a></li>
+                            <li><a class="" href="javascript:void(0)"><iconify-icon icon="solar:star-line-duotone"
+                                  class="text-warning"></iconify-icon></a>
+                            </li>
+                          </ul>
+                          <p class="text-dark mb-0 fw-normal text-truncate-2">
+                            This theme is great. Clean and easy to
+                            understand. Perfect for those who don't have<br>
+                            time to... <a href="#">See more</a>
+                          </p>
+                        </div>
+                      </td>
+                      <td>
+                        <span
+                          class="badge rounded-pill bg-success-subtle text-success border-success border">Confirmed</span>
+                      </td>
+                      <td>
+                        <p class="mb-0">Nov 8</p>
+                      </td>
+                      <td>
+                        <div class="dropdown dropstart">
+                          <a href="#" class="text-muted " id="dropdownMenuButton" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="ti ti-dots-vertical fs-5"></i>
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li>
+                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
+                                  class="fs-4 ti ti-plus"></i>Add</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
+                                  class="fs-4 ti ti-edit"></i>Edit</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
+                                  class="fs-4 ti ti-trash"></i>Delete</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex align-items-center product text-truncate">
+                          <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/products/product-6.png" class="img-fluid flex-shrink-0"
+                            width="60" height="60">
+                          <div class="ms-3 product-title">
+                            <h6 class="fs-4 mb-0 text-truncate-2">Apple MacBook Pro 13 inch-M1-8/256GB-space</h6>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="d-flex align-items-center text-truncate">
+                          <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/profile/user-3.jpg" alt=""
+                            class="img-fluid rounded-circle flex-shrink-0" width="32" height="32">
+                          <div class="ms-7">
+                            <h5 class="mb-1 fs-4">Jerome Bell</h5>
+                            <h6 class="mb-0 fw-light">belljerome@yahoo.com</h6>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="product-reviews">
+                          <ul class="list-unstyled d-flex align-items-center mb-0">
+                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
+                                  class="text-warning"></iconify-icon></a></li>
+                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
+                                  class="text-warning"></iconify-icon></a></li>
+                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
+                                  class="text-warning"></iconify-icon></a></li>
+                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
+                                  class="text-warning"></iconify-icon></a></li>
+                            <li><a class="" href="javascript:void(0)"><iconify-icon icon="solar:star-line-duotone"
+                                  class="text-warning"></iconify-icon></a>
+                            </li>
+                          </ul>
+                          <p class="text-dark mb-0 fw-normal text-truncate-2">
+                            It's a Mac, after all. Once you've gone Mac,there's no going back. My first Mac
+                            lastedover nine years.
+                          </p>
+                        </div>
+                      </td>
+                      <td>
+                        <span
+                          class="badge rounded-pill bg-warning-subtle text-warning border-warning border">Pending</span>
+                      </td>
+                      <td>
+                        <p class="mb-0">Nov 8</p>
+                      </td>
+                      <td>
+                        <div class="dropdown dropstart">
+                          <a href="#" class="text-muted " id="dropdownMenuButton" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="ti ti-dots-vertical fs-5"></i>
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li>
+                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
+                                  class="fs-4 ti ti-plus"></i>Add</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
+                                  class="fs-4 ti ti-edit"></i>Edit</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
+                                  class="fs-4 ti ti-trash"></i>Delete</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      
+                      <td>
+                        <div class="d-flex align-items-center product text-truncate">
+                          <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/products/product-7.png" class="img-fluid flex-shrink-0"
+                            width="60" height="60">
+                          <div class="ms-3 product-title">
+                            <h6 class="fs-4 mb-0 text-truncate-2">PlayStation 5 DualSense Wireless Controller</h6>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="d-flex align-items-center text-truncate">
+                          <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/profile/user-4.jpg" alt=""
+                            class="img-fluid rounded-circle flex-shrink-0" width="32" height="32">
+                          <div class="ms-7">
+                            <h5 class="mb-1 fs-4">Jacob Jones</h5>
+                            <h6 class="mb-0 fw-light">jones009@hotmail.com</h6>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="product-reviews">
+                          <ul class="list-unstyled d-flex align-items-center mb-0">
+                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
+                                  class="text-warning"></iconify-icon></a></li>
+                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
+                                  class="text-warning"></iconify-icon></a></li>
+                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
+                                  class="text-warning"></iconify-icon></a></li>
+                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon
+                                  icon="solar:star-bold-duotone" class="text-warning"></iconify-icon></a></li>
+                            <li><a class="" href="javascript:void(0)"><iconify-icon icon="solar:star-line-duotone"
+                                  class="text-warning"></iconify-icon></a>
+                            </li>
+                          </ul>
+                          <p class="text-dark mb-0 fw-normal text-truncate-2">
+                            The best experience we could hope for.Customer service team is amazing and thequality
+                            of their products... <a href="#">See more</a>
+                          </p>
+                        </div>
+                      </td>
+                      <td>
+                        <span
+                          class="badge rounded-pill bg-warning-subtle text-warning border-warning border">Pending</span>
+                      </td>
+                      <td>
+                        <p class="mb-0">Nov 8</p>
+                      </td>
+                      <td>
+                        <div class="dropdown dropstart">
+                          <a href="#" class="text-muted " id="dropdownMenuButton" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="ti ti-dots-vertical fs-5"></i>
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li>
+                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
+                                  class="fs-4 ti ti-plus"></i>Add</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
+                                  class="fs-4 ti ti-edit"></i>Edit</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
+                                  class="fs-4 ti ti-trash"></i>Delete</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                    
+                      <td>
+                        <div class="d-flex align-items-center product text-truncate">
+                          <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/products/product-8.png" class="img-fluid flex-shrink-0"
+                            width="60" height="60">
+                          <div class="ms-3 product-title">
+                            <h6 class="fs-4 mb-0 text-truncate-2">Amazon Basics Mesh, Mid-Back, Swivel Office De...
+                            </h6>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="d-flex align-items-center text-truncate">
+                          <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/profile/user-5.jpg" alt=""
+                            class="img-fluid rounded-circle flex-shrink-0" width="32" height="32">
+                          <div class="ms-7">
+                            <h5 class="mb-1 fs-4">Annette Black</h5>
+                            <h6 class="mb-0 fw-light">blackanne@yahoo.com</h6>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="product-reviews">
+                          <ul class="list-unstyled d-flex align-items-center mb-0">
+                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
+                                  class="text-warning"></iconify-icon></a></li>
+                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
+                                  class="text-warning"></iconify-icon></a></li>
+                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
+                                  class="text-warning"></iconify-icon></a></li>
+                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon
+                                  icon="solar:star-bold-duotone" class="text-warning"></iconify-icon></a></li>
+                            <li><a class="" href="javascript:void(0)"><iconify-icon icon="solar:star-line-duotone"
+                                  class="text-warning"></iconify-icon></a>
+                            </li>
+                          </ul>
+                          <p class="text-dark mb-0 fw-normal text-truncate-2">
+                            The controller is quite comfy for me. Despiteits increased size, the controller still
+                            fits well <br>in my hands.
+                          </p>
+                        </div>
+                      </td>
+                      <td>
+                        <span
+                          class="badge rounded-pill bg-success-subtle text-success border-success border">Confirmed</span>
+                      </td>
+                      <td>
+                        <p class="mb-0">Nov 8</p>
+                      </td>
+                      <td>
+                        <div class="dropdown dropstart">
+                          <a href="#" class="text-muted " id="dropdownMenuButton" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="ti ti-dots-vertical fs-5"></i>
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li>
+                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
+                                  class="fs-4 ti ti-plus"></i>Add</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
+                                  class="fs-4 ti ti-edit"></i>Edit</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
+                                  class="fs-4 ti ti-trash"></i>Delete</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>                 
+                      <td>
+                        <div class="d-flex align-items-center product text-truncate">
+                          <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/products/product-9.png" class="img-fluid flex-shrink-0"
+                            width="60" height="60">
+                          <div class="ms-3 product-title">
+                            <h6 class="fs-4 mb-0 text-truncate-2">Sony X85J 75 Inch Sony 4K Ultra HD LED Smart G...
+                            </h6>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="d-flex align-items-center text-truncate">
+                          <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/profile/user-6.jpg" alt=""
+                            class="img-fluid rounded-circle flex-shrink-0" width="32" height="32">
+                          <div class="ms-7">
+                            <h5 class="mb-1 fs-4">Albert Flores</h5>
+                            <h6 class="mb-0 fw-light">albertflo9@gmail.com</h6>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="product-reviews">
+                          <ul class="list-unstyled d-flex align-items-center mb-0">
+                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
+                                  class="text-warning"></iconify-icon></a></li>
+                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
+                                  class="text-warning"></iconify-icon></a></li>
+                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
+                                  class="text-warning"></iconify-icon></a></li>
+                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon
+                                  icon="solar:star-bold-duotone" class="text-warning"></iconify-icon></a></li>
+                            <li><a class="" href="javascript:void(0)"><iconify-icon icon="solar:star-line-duotone"
+                                  class="text-warning"></iconify-icon></a>
+                            </li>
+                          </ul>
+                          <p class="text-dark mb-0 fw-normal text-truncate-2">
+                            This theme is great. Perfect for those whodon't have time to start everything from
+                            <br>scratch.
+                          </p>
+                        </div>
+                      </td>
+                      <td>
+                        <span
+                          class="badge rounded-pill bg-warning-subtle text-warning border-warning border">Pending</span>
+                      </td>
+                      <td>
+                        <p class="mb-0">Nov 8</p>
+                      </td>
+                      <td>
+                        <div class="dropdown dropstart">
+                          <a href="#" class="text-muted " id="dropdownMenuButton" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="ti ti-dots-vertical fs-5"></i>
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li>
+                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
+                                  class="fs-4 ti ti-plus"></i>Add</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
+                                  class="fs-4 ti ti-edit"></i>Edit</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
+                                  class="fs-4 ti ti-trash"></i>Delete</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="d-flex align-items-center justify-content-between mt-10">
+                <p class="mb-0 fw-normal">1-6 of 32</p>
+                <nav aria-label="Page navigation example">
+                  <ul class="pagination mb-0 align-items-center">
+                    <li class="page-item"><a
+                        class="page-link border-0 d-flex align-items-center text-muted fw-normal"
+                        href="#"><iconify-icon icon="solar:alt-arrow-left-line-duotone"
+                          class="fs-5"></iconify-icon>Previous</a></li>
+                    <li class="page-item"><a class="page-link border-0 d-flex align-items-center fw-normal"
+                        href="#">Next<iconify-icon icon="solar:alt-arrow-right-line-duotone"
+                          class="fs-5"></iconify-icon></a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+            </section>
+
+            
+        </div>
+{% endblock %}
+
+
+    {% block resource %}
+        <link rel="stylesheet" id="flatpickr-css" href="{% static 'wp-content/plugins/elementor/assets/lib/flatpickr/flatpickr.min.css' %}" media="all" />
+        <link rel="stylesheet" id="e-animations-css" href="{% static 'wp-content/plugins/elementor/assets/lib/animations/animations.min.css' %}" media="all" />
+        <script data-cfasync="false" src="{% static 'cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js' %}"></script>
+        <script src="{% static 'wp-content/themes/hello-elementor/assets/js/hello-frontend.min.js' %}" id="hello-theme-frontend-js"></script>
+        <script src="{% static 'wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.minf269.js' %}" id="smartmenus-js"></script>
+        <script src="{% static 'wp-content/plugins/elementor/assets/lib/flatpickr/flatpickr.mineda1.js' %}" id="flatpickr-js"></script>
+        <script src="{% static 'wp-content/plugins/elementor/assets/lib/jquery-numerator/jquery-numerator.min3958.js' %}" id="jquery-numerator-js"></script>
+        <script src="{% static 'wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min2c7c.js' %}" id="elementor-pro-webpack-runtime-js"></script>
+        <script src="{% static 'wp-content/plugins/elementor/assets/js/webpack.runtime.min6e54.js' %}" id="elementor-webpack-runtime-js"></script>
+        <script src="{% static 'wp-content/plugins/elementor/assets/js/frontend-modules.min6e54.js' %}" id="elementor-frontend-modules-js"></script>
+        <script src="{% static 'wp-includes/js/dist/vendor/wp-polyfill-inert.min0226.js' %}" id="wp-polyfill-inert-js"></script>
+        <script src="{% static 'wp-includes/js/dist/vendor/regenerator-runtime.min8fa4.js' %}" id="regenerator-runtime-js"></script>
+        <script src="{% static 'wp-includes/js/dist/vendor/wp-polyfill.min2c7c.js' %}" id="wp-polyfill-js"></script>
+        <script src="{% static 'wp-includes/js/dist/hooks.min2ebd.js' %}" id="wp-hooks-js"></script>
+        <script src="{% static 'wp-includes/js/dist/i18n.minf92f.js' %}" id="wp-i18n-js"></script>
+        <script id="wp-i18n-js-after">
+            wp.i18n.setLocaleData({ "text direction\u0004ltr": ["ltr"] });
+        </script>
+        <script id="elementor-pro-frontend-js-before">
+            var ElementorProFrontendConfig = {
+                ajaxurl: "https:\/\/templatekit.tokomoo.com\/recordkit\/wp-admin\/admin-ajax.php",
+                nonce: "b037b9e090",
+                urls: { assets: "https:\/\/templatekit.tokomoo.com\/recordkit\/wp-content\/plugins\/elementor-pro\/assets\/", rest: "https:\/\/templatekit.tokomoo.com\/recordkit\/wp-json\/" },
+                shareButtonsNetworks: {
+                    facebook: { title: "Facebook", has_counter: true },
+                    twitter: { title: "Twitter" },
+                    linkedin: { title: "LinkedIn", has_counter: true },
+                    pinterest: { title: "Pinterest", has_counter: true },
+                    reddit: { title: "Reddit", has_counter: true },
+                    vk: { title: "VK", has_counter: true },
+                    odnoklassniki: { title: "OK", has_counter: true },
+                    tumblr: { title: "Tumblr" },
+                    digg: { title: "Digg" },
+                    skype: { title: "Skype" },
+                    stumbleupon: { title: "StumbleUpon", has_counter: true },
+                    mix: { title: "Mix" },
+                    telegram: { title: "Telegram" },
+                    pocket: { title: "Pocket", has_counter: true },
+                    xing: { title: "XING", has_counter: true },
+                    whatsapp: { title: "WhatsApp" },
+                    email: { title: "Email" },
+                    print: { title: "Print" },
+                },
+                facebook_sdk: { lang: "en_US", app_id: "" },
+                lottie: { defaultAnimationUrl: "https:\/\/templatekit.tokomoo.com\/recordkit\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json" },
+            };
+        </script>
+        <script src="{% static 'wp-content/plugins/elementor-pro/assets/js/frontend.min2c7c.js' %}" id="elementor-pro-frontend-js"></script>
+        <script src="{% static 'wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min05da.js' %}" id="elementor-waypoints-js"></script>
+        <script src="{% static 'wp-includes/js/jquery/ui/core.min3f14.js' %}" id="jquery-ui-core-js"></script>
+        <script id="elementor-frontend-js-before">
+            var elementorFrontendConfig = {
+                environmentMode: { edit: false, wpPreview: false, isScriptDebug: false },
+                i18n: {
+                    shareOnFacebook: "Share on Facebook",
+                    shareOnTwitter: "Share on Twitter",
+                    pinIt: "Pin it",
+                    download: "Download",
+                    downloadImage: "Download image",
+                    fullscreen: "Fullscreen",
+                    zoom: "Zoom",
+                    share: "Share",
+                    playVideo: "Play Video",
+                    previous: "Previous",
+                    next: "Next",
+                    close: "Close",
+                    a11yCarouselWrapperAriaLabel: "Carousel | Horizontal scrolling: Arrow Left & Right",
+                    a11yCarouselPrevSlideMessage: "Previous slide",
+                    a11yCarouselNextSlideMessage: "Next slide",
+                    a11yCarouselFirstSlideMessage: "This is the first slide",
+                    a11yCarouselLastSlideMessage: "This is the last slide",
+                    a11yCarouselPaginationBulletMessage: "Go to slide",
+                },
+                is_rtl: false,
+                breakpoints: { xs: 0, sm: 480, md: 768, lg: 1025, xl: 1440, xxl: 1600 },
+                responsive: {
+                    breakpoints: {
+                        mobile: { label: "Mobile Portrait", value: 767, default_value: 767, direction: "max", is_enabled: true },
+                        mobile_extra: { label: "Mobile Landscape", value: 880, default_value: 880, direction: "max", is_enabled: false },
+                        tablet: { label: "Tablet Portrait", value: 1024, default_value: 1024, direction: "max", is_enabled: true },
+                        tablet_extra: { label: "Tablet Landscape", value: 1200, default_value: 1200, direction: "max", is_enabled: false },
+                        laptop: { label: "Laptop", value: 1366, default_value: 1366, direction: "max", is_enabled: false },
+                        widescreen: { label: "Widescreen", value: 2400, default_value: 2400, direction: "min", is_enabled: false },
+                    },
+                },
+                version: "3.19.4",
+                is_static: false,
+                experimentalFeatures: {
+                    e_optimized_assets_loading: true,
+                    e_optimized_css_loading: true,
+                    additional_custom_breakpoints: true,
+                    theme_builder_v2: true,
+                    "hello-theme-header-footer": true,
+                    block_editor_assets_optimize: true,
+                    "ai-layout": true,
+                    "landing-pages": true,
+                    e_image_loading_optimization: true,
+                    e_global_styleguide: true,
+                    "page-transitions": true,
+                    notes: true,
+                    loop: true,
+                    "form-submissions": true,
+                    e_scroll_snap: true,
+                },
+                urls: { assets: "https:\/\/templatekit.tokomoo.com\/recordkit\/wp-content\/plugins\/elementor\/assets\/" },
+                swiperClass: "swiper-container",
+                settings: { page: [], editorPreferences: [] },
+                kit: {
+                    active_breakpoints: ["viewport_mobile", "viewport_tablet"],
+                    global_image_lightbox: "yes",
+                    lightbox_enable_counter: "yes",
+                    lightbox_enable_fullscreen: "yes",
+                    lightbox_enable_zoom: "yes",
+                    lightbox_enable_share: "yes",
+                    lightbox_title_src: "title",
+                    lightbox_description_src: "description",
+                    hello_header_logo_type: "logo",
+                    hello_header_menu_layout: "horizontal",
+                    hello_footer_logo_type: "logo",
+                },
+                post: { id: 1961, title: "Studio%20%E2%80%93%20Exodio", excerpt: "", featuredImage: false },
+            };
+        </script>
+        <script src="{% static 'wp-content/plugins/elementor/assets/js/frontend.min6e54.js' %}" id="elementor-frontend-js"></script>
+        <script src="{% static 'wp-content/plugins/elementor-pro/assets/js/elements-handlers.min2c7c.js' %}" id="pro-elements-handlers-js"></script>
+        <script type="text/javascript">
+            jQuery(function ($) {
+                for (let i = 0; i < document.forms.length; ++i) {
+                    let form = document.forms[i];
+                    if ($(form).attr("method") != "get") {
+                        $(form).append('<input type="hidden" name="_ESqeFcnpgZQ" value="nucIej@8pkqOBaU" />');
+                    }
+                    if ($(form).attr("method") != "get") {
+                        $(form).append('<input type="hidden" name="CrypzDGmkB" value="NJm]Y*6DRf" />');
+                    }
+                }
+
+                $(document).on("submit", "form", function () {
+                    if ($(this).attr("method") != "get") {
+                        $(this).append('<input type="hidden" name="_ESqeFcnpgZQ" value="nucIej@8pkqOBaU" />');
+                    }
+                    if ($(this).attr("method") != "get") {
+                        $(this).append('<input type="hidden" name="CrypzDGmkB" value="NJm]Y*6DRf" />');
+                    }
+                    return true;
+                });
+
+                jQuery.ajaxSetup({
+                    beforeSend: function (e, data) {
+                        if (data.type !== "POST") return;
+
+                        if (typeof data.data === "object" && data.data !== null) {
+                            data.data.append("_ESqeFcnpgZQ", "nucIej@8pkqOBaU");
+                            data.data.append("CrypzDGmkB", "NJm]Y*6DRf");
+                        } else {
+                            data.data = data.data + "&_ESqeFcnpgZQ=nucIej@8pkqOBaU&CrypzDGmkB=NJm]Y*6DRf";
+                        }
+                    },
+                });
+            });
+        </script>
+
+    {% endblock %}
