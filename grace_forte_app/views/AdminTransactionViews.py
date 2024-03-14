@@ -32,7 +32,7 @@ def pending_training_payment_details(request, id):
 @login_required(login_url=login_url)
 def approved_training_payments(request):
     try:
-        approved_transactions = TrainingPayment.objects.filter(isDeleted=False, isApproved=True)[:10]
+        approved_transactions = TrainingPayment.objects.filter(isDeleted=False, isApproved=True).order_by("-approvedDate")[:10]
         return render(request, "admin/transactions/approved-trainings-payments.html", {"approved_transactions": approved_transactions})
     except Exception as ex:
         print(ex)
@@ -43,7 +43,7 @@ def approved_training_payments(request):
 def approved_training_payment_details(request, id):
     try:
         approved_transaction = TrainingPayment.objects.filter( Id=id, isDeleted=False, isApproved=True).first()
-        return render(request, "admin/transactions/_approved-payment-details.html", {"approved_transaction": approved_transaction})
+        return render(request, "admin/transactions/_approved-training-payment-details.html", {"approved_transaction": approved_transaction})
     except Exception as ex:
         print(ex)
         
