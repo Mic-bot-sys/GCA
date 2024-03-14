@@ -66,6 +66,12 @@
 										<!--begin::Body-->
 										<div class="card-body pt-5" id="pendingTrainingsId">
 											<!--begin::Item-->
+                      {% if length == 0 %}
+                      <div class="row mb-7 text-center">
+                        <p class="text-muted">No Approved Transactions yet</p>
+                      </div>
+                      {% endif %}
+                      
                       {% for transaction in approved_transactions %}
                       <script>
                         function myFunction(x) {

@@ -13,6 +13,7 @@ urlpatterns = [
     path('pending/<str:id>/', pending_training_payment_details, name="pending-training_payment-details"),
     path('approved/', approved_training_payments, name="approved-training-payments"),
     path('approved/<str:id>/', approve_training_payment, name="approve-training-payment"),
+    path('approved/get/<str:id>/', approved_training_payment_details, name="approve-training-payment-details"),
     # path('approved/', dashboard, name="allServicesRendered"),
     # path('register', register, name="register"),
     # path('logout', logoutUser, name="logout"),

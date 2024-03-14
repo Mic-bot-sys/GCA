@@ -13,6 +13,7 @@ urlpatterns = [
     path('services/', include('grace_forte_app.urls.ServicesUrls')),
     path('trainings/', include('grace_forte_app.urls.TrainingsUrls')),
     path('trainings-payment/', include('grace_forte_app.urls.TrainingsPaymentUrls')),
+    path('services-payment/', include('grace_forte_app.urls.ServicesPaymentUrls')),
     path('user-profile/', include('grace_forte_app.urls.UserProfileUrls')),
 ]
 

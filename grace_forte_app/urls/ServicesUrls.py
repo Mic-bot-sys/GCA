@@ -6,5 +6,6 @@ app_name = "services"
 urlpatterns = [
     path('', ServicesViews.services, name="services"),
     path('details/<str:id>/', ServicesViews.service_details, name="service-details"),
+    path('onnote/<str:id>/<str:duration>/<str:totalAmount>/', ServicesViews.service_note, name="service-note"),
     path('book/<str:id>/', ServicesViews.service_booking, name="service-bookings"),
 ]

@@ -77,7 +77,6 @@ function onPostLogin(event){
 function onApprove(event, id, index){
     event.preventDefault();
 
-    alert("herrr")
     Swal.fire({
         title: 'Are you sure you want to Approve this Transaction?',
         text: "You won't be able to revert this!",
@@ -136,19 +135,48 @@ function onGetPendingTrainingTransactionDetails(event, id){
     $.ajax({
         type: "GET",
         url: `/admin-user/pending/${id}/`,
-        // contentType: "application/json; charset=UTF-8",
         success: function (result) {
             if (result.Error){
                 $('#cover-spin').hide(0);
                 alert(result.Error);
                 Swal.fire(
-                    'There was a problem while trying to Approve the Transaction!',
-                    'Transaction Error.',
+                    'There was a problem while trying to get the Transaction!',
+                    '',
                     'error'
                   )
             }else{                
                 $('#detailsId').html(result)
                 $('#viewId').modal("show")
+            }
+   
+            },
+            error: function (data) {
+            console.log(data);
+            alert("There was a problem  while trying to Get the Data");
+            }
+        });
+}
+
+
+
+function onGetApprovedTrainingTransactionDetails(event, id){
+    event.preventDefault();
+    
+    $.ajax({
+        type: "GET",
+        url: `/admin-user/approved/get/${id}/`,
+        success: function (result) {
+            if (result.Error){
+                $('#cover-spin').hide(0);
+                alert(result.Error);
+                Swal.fire(
+                    'There was a problem while trying to get the Transaction!',
+                    'Transaction Error.',
+                    'error'
+                  )
+            }else{                
+                $('#approved-detailsId').html(result)
+                $('#approvedId').modal("show")
             }
    
             },
