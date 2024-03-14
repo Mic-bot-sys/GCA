@@ -6,9 +6,12 @@ from decimal import Decimal
 
 from grace_forte_app.special_services.CustomBase64Converter import CustomInMemoryBase64Converter
 from grace_forte_app.special_services.EmailNotifier import EmailNotification
+from django.contrib.auth.decorators import login_required
+
 
 
 @csrf_exempt
+@login_required
 def training_payment(request):
     try:
         if request.user.is_authenticated:

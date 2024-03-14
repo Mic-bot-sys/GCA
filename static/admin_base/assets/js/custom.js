@@ -42,22 +42,24 @@ function onPostLogin(event){
         contentType: "application/json; charset=UTF-8",
         data: JSON.stringify(obj),
         success: function (result) {
-            if (result.Error){
-                alert(result.Error);
+            if (result.status){
+                $(document.body).load(location.href);
+                window.location.href = "/admin-user/dashboard/";
+
                 majorBtn.removeAttribute('disabled');
                 submitTextBtn.removeAttribute('hidden');
                 spinIconBtn.setAttribute('hidden', 'hidden');
             }else{
-                $(document.body).load(location.href);
-                window.location.href = "/admin-user/dashboard/";
+                
             }
    
             },
             error: function (data) {
+            console.log(data)
             majorBtn.removeAttribute('disabled');
             submitTextBtn.removeAttribute('hidden');
             spinIconBtn.setAttribute('hidden', 'hidden');
-            alert("There was a problem while while trying to Login");
+            alert("There was a problem while trying to Login");
             
             }
             
@@ -72,49 +74,46 @@ function onPostLogin(event){
 
 
 
-function onApprove(event, id){
+function onApprove(event, id, index){
     event.preventDefault();
 
+    alert("herrr")
     Swal.fire({
-        title: 'Are you sure you want to Confirm this Transaction?',
+        title: 'Are you sure you want to Approve this Transaction?',
         text: "You won't be able to revert this!",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
+        ApproveButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, Confirm!'
+        ApproveButtonText: 'Yes, Approve!'
       }).then((result) => {
         if (result.isConfirmed) {
             $('#cover-spin').show(0);
-            let csrf = jQuery("[name=csrfmiddlewaretoken]").val();
-     
-            let obj = {
-                bookingPaymentId: id,
-                csrfmiddlewaretoken: csrf,
-            }
+    
 
             $.ajax({
-                type: "POST",
-                url: "/authenticate/approve/",
-                contentType: "application/json; charset=UTF-8",
-                data: JSON.stringify(obj),
+                type: "GET",
+                url: `/admin-user/approved/${id}/`,
                 success: function (result) {
                     if (result.Error){
                         $('#cover-spin').hide(0);
                         alert(result.Error);
                         Swal.fire(
-                            'There was a problem while trying to Confirm the Transaction!',
+                            'There was a problem while trying to Approve the Transaction!',
                             'Transaction Error.',
                             'error'
                           )
                     }else{
+                        $("tr[data-index='" + index +"']").remove();
                         $('#cover-spin').hide(0);
                         Swal.fire(
-                            'Confirmed!',
-                            'Transaction Confirmed.',
+                            'Approved!',
+                            'Transaction Approved.',
                             'success'
                           )
-                        $('#pendingListId').load('/authenticate/pending/partial');
+
+                          
+                        // $('#pendingListId').load('/authenticate/pending/partial');
                     }
            
                     },
@@ -131,6 +130,41 @@ function onApprove(event, id){
 
 
 
+function onGetPendingTrainingTransactionDetails(event, id){
+    event.preventDefault();
+    
+    $.ajax({
+        type: "GET",
+        url: `/admin-user/pending/${id}/`,
+        // contentType: "application/json; charset=UTF-8",
+        success: function (result) {
+            if (result.Error){
+                $('#cover-spin').hide(0);
+                alert(result.Error);
+                Swal.fire(
+                    'There was a problem while trying to Approve the Transaction!',
+                    'Transaction Error.',
+                    'error'
+                  )
+            }else{                
+                $('#detailsId').html(result)
+                $('#viewId').modal("show")
+            }
+   
+            },
+            error: function (data) {
+            console.log(data);
+            alert("There was a problem  while trying to Get the Data");
+            }
+        });
+}
+
+
+function onCloseModal(){
+    $('.modal').remove();
+    $('.modal-backdrop').remove();
+    $('body').removeClass( "modal-open" );
+}
 
 
 

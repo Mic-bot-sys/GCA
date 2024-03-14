@@ -90,7 +90,7 @@
                                 </div>
                                 <div class="d-flex flex-column">                            
                                 <span class="fw-bolder my-2" style="text-align: end !important">₦{{transaction.expectedAmount|intcomma}}</span>
-                                <span class="fw-bolder my-2" style="text-align: end !important">{{transaction.dateCreated|timesince}} ago</span>
+                                <span class="fw-bolder my-2" style="text-align: end !important">{{transaction.dateCreated|timesince|truncatechars:17}} ago</span>
                                 </div>
                               </div>
                              
@@ -117,7 +117,7 @@
                                   <span class="text-muted fw-bold d-block fs-7">{{transaction.account.bank|truncatechars:15}}</span>
                                 </div>
                                 <div class="d-flex flex-column align-items-end">                            
-                                <span class="badge badge-light fw-bolder my-2" style="text-align: end !important">₦{{transaction.expectedAmount|intcomma}}</span>
+                                <span class="badge badge-light fw-bolder my-2 fs-6" style="text-align: end !important">₦{{transaction.expectedAmount|intcomma}}</span>
                                 <span class="fw-bolder my-2" style="text-align: end !important">{{transaction.dateCreated|timesince}} ago</span>
                                 </div>
                               </div>

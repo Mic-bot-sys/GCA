@@ -3,6 +3,7 @@ from grace_forte_app.models.ProfileModel import Profile
 from django.contrib.auth.decorators import login_required
 
 
+
 @login_required
 def user_profile(request):
     user = request.user
