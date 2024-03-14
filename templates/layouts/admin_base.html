@@ -30,6 +30,7 @@
   <link href="{% static 'admin_base/assets/css/style.css' %}" rel="stylesheet">
   <!-- <link rel="stylesheet" href="../../static/admin_base/assets/css/customModals.css"> -->
 
+  {% block head %} {% endblock %}
 
 </head>
 
@@ -39,7 +40,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="" class="logo d-flex align-items-center">
         <img src="{% static 'images/logo.png' %}" alt="" width="60" height="60">
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -143,13 +144,13 @@
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="{% url 'the_admin:pending' %}">
-              <i class="bi bi-circle"></i><span>Pending Payments</span>
+            <a href="{% url 'the_admin:pending-training-payments' %}">
+              <i class="bi bi-circle"></i><span>Pending Training Payments</span>
             </a>
           </li>
           <li>
-            <a href="{% url 'the_admin:approved' %}">
-              <i class="bi bi-circle"></i><span>Approved Payments</span>
+            <a href="{% url 'the_admin:approved-training-payments' %}">
+              <i class="bi bi-circle"></i><span>Approved Training Payments</span>
             </a>
           </li>
         </ul>
@@ -162,12 +163,12 @@
         </a>
         <ul id="services-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="{% url 'the_admin:pending' %}">
+            <a href="{% url 'the_admin:pending-training-payments' %}">
               <i class="bi bi-circle"></i><span>Create New Service</span>
             </a>
           </li>
           <li>
-            <a href="{% url 'the_admin:allServicesRendered' %}">
+            <a href="{% url 'the_admin:pending-training-payments' %}">
               <i class="bi bi-circle"></i><span>View Available Services</span>
             </a>
           </li>
