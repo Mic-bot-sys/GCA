@@ -162,7 +162,6 @@ function onGetPendingTrainingTransactionDetails(event, id){
 function onGetApprovedTrainingTransactionDetails(event, id){
     event.preventDefault();
     
-    debugger
     $.ajax({
         type: "GET",
         url: `/admin-user/approved/get/${id}/`,

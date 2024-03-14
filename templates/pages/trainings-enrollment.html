@@ -444,9 +444,7 @@
                                     {% if request.user.is_authenticated %}
                                         <input readonly type="hidden" name="courseId" id="courseId" value="{{course.Id}}" />
                                         <input readonly type="hidden" name="accountId" id="accountId" value="{{request.session.accountId}}" />
-                                        <!-- <input type="hidden" name="referer_title" value="Studio" /> -->
                                         {% endif %}
-                                        <!-- <input type="hidden" name="queried_id" value="1961" /> -->
 
                                         <div class="elementor-form-fields-wrapper elementor-labels-above">                                           
                                             <div  class="elementor-field-type-select elementor-field-group elementor-column elementor-field-group-field_6170a0b elementor-col-100 elementor-field-required">
@@ -619,7 +617,7 @@
             (function(){
                 swal({
                     title: "Proof of Payment!",
-                    text: "Make payments to the account details as displayed below to continue the enrollment process. Do not forget to upload your Proof of Payment after successfully making Payments.",
+                    text: "Make payments to the account details as displayed. Do not forget to upload your Proof of Payment.",
                     imageUrl: "{% static 'pagereceipt.jpg' %}",
                     imageSize: "150x150",
                     confirmButtonColor: "#0046ae",

@@ -1,5 +1,6 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
+{% load humanize %}
 
 {% block head %}
         <meta charset="UTF-8" />
@@ -808,7 +809,7 @@
                                                 data-widget_type="heading.default"
                                             >
                                                 <div class="elementor-widget-container">
-                                                    <p class="elementor-heading-title elementor-size-default">Start From :</p>
+                                                    <p class="elementor-heading-title elementor-size-default">Amount:</p>
                                                 </div>
                                             </div>
                                             <div
@@ -818,7 +819,7 @@
                                                 data-widget_type="heading.default"
                                             >
                                                 <div class="elementor-widget-container">
-                                                    <p class="elementor-heading-title elementor-size-default">$50/hr</p>
+                                                    <p class="elementor-heading-title elementor-size-default" >₦<span  id="priceId">{{service.price|intcomma}}</span>/hr</p>
                                                 </div>
                                             </div>
    <div class="elementor-element elementor-element-48cc3675 elementor-widget elementor-widget-spacer" data-id="48cc3675" data-element_type="widget" data-widget_type="spacer.default">
@@ -904,7 +905,7 @@
                                                 data-element_type="widget"
                                                 data-widget_type="heading.default"
                                             >
-                                             <select name="form_fields[field_6170a0b]" id="form-field-field_6170a0b" class="elementor-field-textual elementor-size-md" required="required" aria-required="true">
+                                             <select onchange="calculateTotalAmount()" name="form_fields[field_6170a0b]"  id="durationId" class="elementor-field-textual elementor-size-md" required="required" aria-required="true">
                                                         <option value="Studio 1 -  Mastering">1hr</option>
                                                         <option value="Studio 2 -  Music">2hrs</option>
                                                         <option value="Studio 3 -  Recording">3hrs</option>
@@ -996,7 +997,7 @@
                                                 data-widget_type="heading.default"
                                             >
                                                 <div class="elementor-widget-container">
-                                                    <p class="elementor-heading-title elementor-size-default">5 Players</p>
+                                                    <p class="elementor-heading-title elementor-size-default" >₦<span id="totalAmountId">{{service.price|intcomma}}</span></p>
                                                 </div>
                                             </div>
                                             <div class="elementor-element elementor-element-15424c7b elementor-widget elementor-widget-spacer" data-id="15424c7b" data-element_type="widget" data-widget_type="spacer.default">
@@ -1014,7 +1015,7 @@
                                             >
                                                 <div class="elementor-widget-container">
                                                     <div class="elementor-button-wrapper">
-                                                        <a class="elementor-button elementor-button-link elementor-size-sm" href="{% url 'services:service-bookings' id=service.Id %}">
+                                                        <a class="elementor-button elementor-button-link elementor-size-sm" onclick="onService(event)">
                                                             <span class="elementor-button-content-wrapper">
                                                                 <span class="elementor-button-text">Book Now</span>
                                                             </span>
@@ -1601,6 +1602,8 @@
                 post: { id: 1966, title: "Studio%20Details%20%E2%80%93%20Exodio", excerpt: "", featuredImage: false },
             };
         </script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
         <script src="{% static 'wp-content/plugins/elementor/assets/js/frontend.min6e54.js' %}?ver=3.19.4" id="elementor-frontend-js"></script>
         <script src="{% static 'wp-content/plugins/elementor-pro/assets/js/elements-handlers.min2c7c.js' %}?ver=3.15.0" id="pro-elements-handlers-js"></script>
         <script type="text/javascript">
@@ -1638,6 +1641,51 @@
                     },
                 });
             });
+        </script>
+
+        <script>
+            function calculateTotalAmount(){
+                let price = parseFloat($('#priceId').text().replaceAll(',', ''));
+                let selectedDuration = parseFloat($("#durationId :selected").text());
+                let totalAmount = price * selectedDuration;
+                totalAmount = new Intl.NumberFormat().format(totalAmount)
+                $("#totalAmountId").text(totalAmount)
+            }
+
+
+            
+            function onService(event){
+                event.preventDefault();
+
+                let pathName = window.location.pathname
+                console.log(pathName)
+                let id = pathName.split("/")[3]
+                console.log(id)
+
+                let selectedDuration = parseFloat($("#durationId :selected").text());
+                let totalAmount = parseFloat($("#totalAmountId").text().replaceAll(',', ''));
+
+                let serviceObj = {
+                    duration: selectedDuration,
+                    totalAmount: parseFloat($("#totalAmountId").text().replaceAll(',', '')),
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: `/services/onnote/${id}/${selectedDuration}/${totalAmount}/`,
+                    contentType: "application/json; charset=UTF-8",
+                    data: JSON.stringify(serviceObj),
+                    success: function (result) {
+                        if(result.status){
+                            window.location.href = `/services/book/${id}/`
+                        }
+                        },
+                        error: function (data) {
+                        console.log(data);
+                        }
+                    });
+
+            }
         </script>
 
 {% endblock %}

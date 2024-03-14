@@ -1,5 +1,8 @@
+import json
+from django.http import JsonResponse
 from django.shortcuts import redirect, render
 from grace_forte_app.models.ServiceRenderedModel import ServiceRendered
+from django.views.decorators.csrf import csrf_exempt
 
 
 
@@ -10,15 +13,32 @@ def services(request):
 
 
 
-
+@csrf_exempt
 def service_details(request, id):
-    service = ServiceRendered.objects.get(pk=id)
-    return render(request, "pages/services-details.html", {"service": service})
+    try:            
+        service = ServiceRendered.objects.get(pk=id)
+        return render(request, "pages/services-details.html", {"service": service})
+    
+    except Exception as ex:
+        print(ex)
 
+
+
+@csrf_exempt
+def service_note(request, id, duration, totalAmount):
+        if request.method == "POST":            
+            request.session["duration"] = duration
+            request.session["totalAmount"] = totalAmount      
+            return JsonResponse({"message": "service choice noted", "status": "200"})
 
 
 
 def service_booking(request, id):
-    if request.user.is_authenticated:
-        return render(request, "pages/services-booking.html")
-    return redirect("authentication:auth")
+    try:
+        if request.user.is_authenticated:
+            service = ServiceRendered.objects.get(pk=id)
+            return render(request, "pages/services-booking.html", {"service": service})
+        return redirect("authentication:auth")
+    
+    except Exception as ex:
+        print(ex)

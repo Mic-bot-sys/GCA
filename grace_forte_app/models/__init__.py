@@ -4,7 +4,7 @@ from grace_forte_app.models.CourseModel import Course
 from grace_forte_app.models.ServiceRenderedModel import ServiceRendered
 from grace_forte_app.models.TrainingPaymentModel import TrainingPayment
 from .AppointmentModel import Appointment
-from .BookingPaymentModel import BookingPayment
+from .ServicePaymentModel import ServicePayment
 from .DiscountModel import Discount
 from grace_forte_app.models.SessionPlanModel import SessionPlan
 from grace_forte_app.models.HierarchyModel import Hierarchy
