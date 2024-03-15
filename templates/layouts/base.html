@@ -92,12 +92,10 @@
                                                     <a href="#" class="elementor-item elementor-item-anchor">Transactions</a>
                                                     <ul class="sub-menu elementor-nav-menu--dropdown">
                                                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2024"><a href="{% url 'main:pending-bookings' %}" class="elementor-sub-item">Pending Bookings</a></li>
-                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2024"><a href="{% url 'main:pending-bookings' %}" class="elementor-sub-item">Approved Bookings</a></li>
-                                                        <!-- <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2025"><a href="../team/index.html" class="elementor-sub-item">Booking Transactions</a></li> -->
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2024"><a href="{% url 'main:approved-bookings' %}" class="elementor-sub-item">Approved Bookings</a></li>
                                                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2026"><a href="{% url 'main:pending-trainings' %}" class="elementor-sub-item">Pending Trainings</a></li>
                                                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2026"><a href="{% url 'main:approved-trainings' %}" class="elementor-sub-item">Approved Trainings</a></li>
                                                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2028"><a href="{% url 'user_profile:user-profile' %}" class="elementor-sub-item">Profile</a></li>
-                                                        <!-- <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2029"><a href="../clients/index.html" class="elementor-sub-item">Clients</a></li> -->
                                                     </ul>
                                                 </li>
                                                 {% endif %}
@@ -251,12 +249,10 @@
                                                     <a href="#" class="elementor-item elementor-item-anchor">Transactions</a>
                                                     <ul class="sub-menu elementor-nav-menu--dropdown">
                                                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2024"><a href="{% url 'main:pending-bookings' %}" class="elementor-sub-item">Pending Bookings</a></li>
-                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2024"><a href="{% url 'main:pending-bookings' %}" class="elementor-sub-item">Approved Bookings</a></li>
-                                                        <!-- <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2025"><a href="../team/index.html" class="elementor-sub-item">Booking Transactions</a></li> -->
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2024"><a href="{% url 'main:approved-bookings' %}" class="elementor-sub-item">Approved Bookings</a></li>
                                                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2026"><a href="{% url 'main:pending-trainings' %}" class="elementor-sub-item">Pending Trainings</a></li>
                                                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2026"><a href="{% url 'main:approved-trainings' %}" class="elementor-sub-item">Approved Trainings</a></li>
                                                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2028"><a href="{% url 'user_profile:user-profile' %}" class="elementor-sub-item">Profile</a></li>
-                                                        <!-- <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2029"><a href="../clients/index.html" class="elementor-sub-item">Clients</a></li> -->
                                                     </ul>
                                                 </li>
                                                 {% endif %}
@@ -270,7 +266,7 @@
                                                         <h6>{{user.email}}</h6>
                                                         <a href="{% url 'authentication:logout' %}" style="background-color: red; color: silver; border-radius: 6px; padding: 12px 3rem">Sign out</a>
                                                     {% else %}
-                                                        <a href="{% url 'authentication:logout' %}" style="background-color: #3b8ee5; color: silver; border-radius: 6px; padding: 12px 3rem">Sign in</a>
+                                                        <a href="{% url 'authentication:logout' %}" style="background-color: #0046ae; color: silver; border-radius: 6px; padding: 12px 3rem">Sign in</a>
                                                     {% endif %}
                                                     </div>
                                                

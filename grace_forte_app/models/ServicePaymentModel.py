@@ -15,7 +15,9 @@ class ServicePayment(models.Model):
     isApproved = models.BooleanField(default=False)
     approvedDate = models.DateTimeField(auto_now_add=False, blank=True, null=True )
     preferedBookingDate = models.DateTimeField(auto_now_add=False, blank=True, null=True )
-    
+    isExpired = models.BooleanField(default=False)
+    receiptId = models.CharField(max_length=100)
+
     # Foreign Fields
     service = models.ForeignKey(ServiceRendered, on_delete=models.CASCADE, related_name="service_payment")
     account = models.ForeignKey(AccountInformation, on_delete=models.CASCADE, related_name="account_service")

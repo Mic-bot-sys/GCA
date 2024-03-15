@@ -1256,7 +1256,7 @@ url("./fonts/bootstrap-icons.woff?24e3eb84d0bcaf83d77f904c78ac1f47") format("wof
 .bi-thermometer-sun::before { content: "\f5d1"; }
 .bi-thermometer::before { content: "\f5d2"; }
 .bi-three-dots-vertical::before { content: "\f5d3"; }
-.bi-three-dots::before { content: "\f5d4"; }
+/* .bi-three-dots::before { content: "\f5d4"; } */
 .bi-toggle-off::before { content: "\f5d5"; }
 .bi-toggle-on::before { content: "\f5d6"; }
 .bi-toggle2-off::before { content: "\f5d7"; }

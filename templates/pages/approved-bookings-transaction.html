@@ -4,7 +4,7 @@
 
 
 {% block title %}
-<title>Pending Booking Transactions</title>
+<title>Pending Bookings</title>
 {% endblock %}
 
 {% block head %}
@@ -57,8 +57,8 @@
 										<!--begin::Header-->
 										<div class="card-header border-0 pt-5">
 											<h3 class="card-title align-items-start flex-column">
-												<span class="card-label fw-bolder text-dark">Pending Booking Transactions</span>
-												<span class="text-muted mt-1 fw-bold fs-7">List of Service Bookings that has not been approved </span>
+												<span class="card-label fw-bolder text-dark">Approved Booking Transactions</span>
+												<span class="text-muted mt-1 fw-bold fs-7">List of Approved Booking Transations </span>
 											</h3>
                       
 										</div>
@@ -68,82 +68,84 @@
 											<!--begin::Item-->
                       {% if length == 0 %}
                       <div class="row mb-7 text-center">
-                        <p class="text-muted">No Pending Transactions yet</p>
+                        <p class="text-muted">No Approved Transactions yet</p>
                       </div>
                       {% endif %}
-                      {% for transaction in pending_transactions %}
-                      <script>
-                        function myFunction(x) {
-                          if (x.matches) { // If media query matches
-                            let z =document.createElement("div")
-                            z.innerHTML = `<div class="d-flex align-items-sm-center mb-7">
-                              <!--begin::Symbol-->
-                              <div class="symbol symbol-50px me-5">
-                                <span class="symbol-label">
-                                  <img loading="lazy" src="data:img/webp;base64,{{transaction.service.imageBase}}" class="h-50 align-self-center" alt="" />
-                                </span>
-                              </div>
-                              <!--end::Symbol-->
-                              <!--begin::Section-->
-                              
-                              <div class="d-flex align-items-center flex-row-fluid flex-wrap">
-                                <div class="flex-grow-1 me-2">
-                                  <a href="#" class="text-gray-800 text-hover-primary fs-6 fw-bolder">{{transaction.service.title|truncatechars:10}}</a>
-                                  <span class="text-muted fw-bold d-block fs-7">{{transaction.account.accountName|truncatechars:7}}</span>
-                                  <span class="text-muted fw-bold d-block fs-7">{{transaction.account.bank|truncatechars:10}}</span>
-                                </div>
-                                <div class="d-flex flex-column">                            
-                                <span class="fw-bolder my-2" style="text-align: end !important">₦{{transaction.expectedAmount|intcomma}}</span>
-                                <span class="fw-bolder my-2" style="text-align: end !important">{{transaction.dateCreated|timesince|truncatechars:17}} ago</span>
-                                </div>
-                              </div>
+                      
+                     {% if approved_transactions %}
+                     {% for transaction in approved_transactions %}
+                     <script>
+                       function myFunction(x) {
+                         if (x.matches) { // If media query matches
+                           let z =document.createElement("div")
+                           z.innerHTML = `<div class="d-flex align-items-sm-center mb-7">
+                             <!--begin::Symbol-->
+                             <div class="symbol symbol-50px me-5">
+                               <span class="symbol-label">
+                                 <img src="data:img/webp;base64,{{transaction.service.imageBase}}" class="h-50 align-self-center" alt="" />
+                               </span>
+                             </div>
+                             <!--end::Symbol-->
+                             <!--begin::Section-->
                              
-                              <!--end::Section-->
-                            </div>`
-                            document.getElementById("pendingTrainingsId").appendChild(z)
-                          } else {
-                            let v =document.createElement("div")
-                            v.innerHTML = `<div class="d-flex align-items-sm-center mb-7">
-                              <!--begin::Symbol-->
-                              <div class="symbol symbol-50px me-5">
-                                <span class="symbol-label">
-                                  <img loading="lazy" src="data:img/webp;base64,{{transaction.service.imageBase}}" class="h-50 align-self-center" alt="" />
-                                </span>
-                              </div>
-                              <!--end::Symbol-->
-                              <!--begin::Section-->
-                              
-                              <div class="d-flex align-items-center flex-row-fluid flex-wrap">
-                                <div class="flex-grow-1 me-2">
-                                  <a href="#" class="text-gray-800 text-hover-primary fs-6 fw-bolder">{{transaction.service.title}}</a>
-                                  <span class="text-muted fw-bold d-block fs-7">{{transaction.account.accountName}}</span>
-                                  <span class="text-muted fw-bold d-block fs-7">{{transaction.account.bank|truncatechars:15}}</span>
-                                </div>
-                                <div class="d-flex flex-column align-items-end">                            
-                                <span class="badge badge-light fw-bolder my-2 fs-6" style="text-align: end !important">₦{{transaction.expectedAmount|intcomma}}</span>
-                                <span class="fw-bolder my-2" style="text-align: end !important">{{transaction.dateCreated|timesince}} ago</span>
-                                </div>
-                              </div>
+                             <div class="d-flex align-items-center flex-row-fluid flex-wrap">
+                               <div class="flex-grow-1 me-2">
+                                 <a href="{% url 'trainings:training-receipt' id=transaction.Id %}" class="text-gray-800 text-hover-primary fs-6 fw-bolder">{{transaction.service.title|truncatechars:10}}</a>
+                                 <span class="text-muted fw-bold d-block fs-7">{{transaction.account.accountName|truncatechars:7}}</span>
+                                 <span class="text-muted fw-bold d-block fs-7">{{transaction.account.bank|truncatechars:10}}</span>
+                               </div>
+                               <div class="d-flex flex-column">                            
+                               <span class="fw-bolder my-2" style="text-align: end !important">₦{{transaction.expectedAmount|intcomma}}</span>
+                               <span class="fw-bolder my-2" style="text-align: end !important">{{transaction.approvedDate|timesince}} ago</span>
+                               </div>
+                             </div>
+                            
+                             <!--end::Section-->
+                           </div>`
+                           document.getElementById("pendingTrainingsId").appendChild(z)
+                         } else {
+                           let v =document.createElement("div")
+                           v.innerHTML = `<div class="d-flex align-items-sm-center mb-7">
+                             <!--begin::Symbol-->
+                             <div class="symbol symbol-50px me-5">
+                               <span class="symbol-label">
+                                 <img src="data:img/webp;base64,{{transaction.service.imageBase}}" class="h-50 align-self-center" alt="" />
+                               </span>
+                             </div>
+                             <!--end::Symbol-->
+                             <!--begin::Section-->
                              
-                              <!--end::Section-->
-                            </div>`
-                            document.getElementById("pendingTrainingsId").appendChild(v)
-                          }
-                        }
-                        
-                        // Create a MediaQueryList object
-                        var x = window.matchMedia("(max-width: 576px)")
-                        
-                        // Call listener function at run time
-                        myFunction(x);
-                        
-                        // Attach listener function on state changes
-                        x.addEventListener("change", function() {
-                          myFunction(x);
-                        });
-                      </script>
-											
-                      {% endfor %}
+                             <div class="d-flex align-items-center flex-row-fluid flex-wrap">
+                               <div class="flex-grow-1 me-2">
+                                 <a href="{% url 'trainings:training-receipt' id=transaction.Id %}" class="text-gray-800 text-hover-primary fs-6 fw-bolder">{{transaction.service.title}}</a>
+                                 <span class="text-muted fw-bold d-block fs-7">{{transaction.account.accountName}}</span>
+                                 <span class="text-muted fw-bold d-block fs-7">{{transaction.account.bank|truncatechars:15}}</span>
+                               </div>
+                               <div class="d-flex flex-column align-items-end">                            
+                               <span class="badge badge-light fw-bolder my-2" style="text-align: end !important">₦{{transaction.expectedAmount|intcomma}}</span>
+                               <span class="fw-bolder my-2" style="text-align: end !important">{{transaction.approvedDate|timesince}} ago</span>
+                               </div>
+                             </div>
+                            
+                             <!--end::Section-->
+                           </div>`
+                           document.getElementById("pendingTrainingsId").appendChild(v)
+                         }
+                       }
+                       
+                       // Create a MediaQueryList object
+                       var x = window.matchMedia("(max-width: 576px)")
+                       
+                       // Call listener function at run time
+                       myFunction(x);
+                       
+                       // Attach listener function on state changes
+                       x.addEventListener("change", function() {
+                         myFunction(x);
+                       });
+                     </script>											
+                     {% endfor %}
+                     {% endif %}
 											<!--end::Item-->
 										</div>
 										<!--end::Body-->

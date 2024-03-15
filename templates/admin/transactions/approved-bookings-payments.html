@@ -1,8 +1,9 @@
 {% extends 'layouts/admin_base.html' %}
 
 {% block title %}
-<title>Approved Training Payments</title>
+<title>Approved Booking Payments</title>
 {% endblock %}
+
 
 {% block head %} 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -129,7 +130,7 @@
                                 <h5 class="card-title">Recent Transactions
                                 </h5>
                                 <div id="approvedListId">
-                                    {% include 'admin/transactions/_approved-training-payment-list.html' %}
+                                    {% include 'admin/transactions/_approved-booking-payment-list.html' %}
                                 </div>
                             </div>
                         </div>

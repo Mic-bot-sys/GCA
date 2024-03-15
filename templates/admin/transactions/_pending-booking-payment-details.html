@@ -15,9 +15,24 @@
             <small id="emailHelp" class="form-text text-muted">This is the User that made the Payment.</small>
           </div>
           <div class="form-group text-center mt-4">
-            <img style="width: 100%; height: 100%" src="data:img/webp;base64,{{pending_transaction.proofBase}}" alt=""/>
-            <!-- <img src="../../../static/pagereceipt.jpg" width="300" height="350" alt=""/> -->
+            <img src="../../../static/pagereceipt.jpg" width="300" height="350" alt=""/>
           </div>
+          <div class="form-group mt-3">
+            <label for="service">Service Booked For</label>
+            <input type="text" class="form-control" id="service"  readonly value="{{pending_transaction.service|title}}">
+          </div>
+          <div class="form-group mt-4">
+            <label for="preferredDate">Booking Date</label>
+            <input type="text" class="form-control" id="preferredDate"  readonly value="{{pending_transaction.preferedBookingDate|date}}">
+            <small id="preferredDate" class="form-text text-muted">This is the Date the user chose to book for.</small>
+          </div>
+          <div class="form-group mt-4 mb-4">
+            <label for="duration">Duration</label>
+            <input type="text" class="form-control" id="duration"  readonly value="{{pending_transaction.bookedDuration}} hr">
+            <!-- <small id="preferredDate" class="form-text text-muted">This is the Date the user chose to book for.</small> -->
+          </div>
+          <hr style="color: silver; width: 100%; height: 3px; background-color: silver; border: none; border-radius: 50%">
+
           <div class="form-group mt-4">
             <div class="row col-xl-12">
               <div class="col-xl-6">

@@ -63,7 +63,7 @@ def CreateTraining(body):
     if main_user is not None:
         notification = BookingNotification(main_user.email, subject, body_message)
    
-    trainingPaymentObj = TrainingPayment.objects.filter(isDeleted=False, Id=trainingPayment.Id).first()
+    trainingPaymentObj = TrainingPayment.objects.filter(isDeleted=False, Id=trainingPayment.Id, isExpired=False).first()
     if trainingPaymentObj is not None:
         serializer = TrainingPaymentSerializer(trainingPaymentObj, many=False)
         return serializer

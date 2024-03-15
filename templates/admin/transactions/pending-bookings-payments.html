@@ -1,7 +1,7 @@
 {% extends 'layouts/admin_base.html' %}
 
 {% block title %}
-<title>Approved Training Payments</title>
+<title>Pending Bookings Payments</title>
 {% endblock %}
 
 {% block head %} 
@@ -49,13 +49,13 @@
 <div id="cover-spin"></div>
 <main id="main" class="main">
     <div class="pagetitle">
-        <h1>Approved Training Payments</h1>
+        <h1>Pending Booking Payments</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                     <a href="index.html">Transactions</a>
                 </li>
-                <li class="breadcrumb-item active">Approved Payments</li>
+                <li class="breadcrumb-item active">Pending Booking Payments</li>
             </ol>
         </nav>
     </div>
@@ -128,8 +128,8 @@
                             <div class="card-body">
                                 <h5 class="card-title">Recent Transactions
                                 </h5>
-                                <div id="approvedListId">
-                                    {% include 'admin/transactions/_approved-training-payment-list.html' %}
+                                <div id="pendingListId">
+                                    {% include 'admin/transactions/_pending-booking-payment-list.html' %}
                                 </div>
                             </div>
                         </div>
@@ -141,7 +141,7 @@
         </div>
     </section>
 
-  <div class="details" id="approved-detailsId">
+  <div class="details" id="detailsId">
 
   </div>
 
