@@ -19,7 +19,7 @@ def about(request):
 @login_required
 def pending_trainings_transaction(request):
     try:   
-        transactions = TrainingPayment.objects.filter(isDeleted=False, isApproved=False, user_id=request.user.id, isExpired=False).order_by("-dateCreated")
+        transactions = TrainingPayment.objects.filter(isDeleted=False, isApproved=False, user_id=request.user.id, isExpired=False).order_by("-dateCreated")[:10]
         return render(request, "pages/pending-trainings-transaction.html", {"pending_transactions": transactions, "length": len(transactions)})
     except Exception as ex:
         print(ex)
@@ -29,7 +29,7 @@ def pending_trainings_transaction(request):
 @login_required
 def approved_trainings_transaction(request):
     try:
-        transactions = TrainingPayment.objects.filter(isDeleted=False, isApproved=True, user_id=request.user.id, isExpired=False).order_by("-approvedDate")
+        transactions = TrainingPayment.objects.filter(isDeleted=False, isApproved=True, user_id=request.user.id, isExpired=False).order_by("-approvedDate")[:10]
         return render(request, "pages/approved-trainings-transaction.html", {"approved_transactions": transactions, "length": len(transactions)})
     except Exception as ex:
         print(ex)
@@ -39,7 +39,7 @@ def approved_trainings_transaction(request):
 @login_required
 def approved_bookings_transaction(request):
     try:
-        transactions = ServicePayment.objects.filter(isDeleted=False, isApproved=True, user_id=request.user.id, isExpired=False).order_by("-approvedDate")
+        transactions = ServicePayment.objects.filter(isDeleted=False, isApproved=True, user_id=request.user.id, isExpired=False).order_by("-approvedDate")[:10]
         return render(request, "pages/approved-bookings-transaction.html", {"approved_transactions": transactions, "length": len(transactions)})
     except Exception as ex:
         print(ex)
@@ -48,7 +48,7 @@ def approved_bookings_transaction(request):
 
 def pending_bookings_transaction(request):
     try:   
-        transactions = ServicePayment.objects.filter(isDeleted=False, isApproved=False, user_id=request.user.id, isExpired=False).order_by("-dateCreated")
+        transactions = ServicePayment.objects.filter(isDeleted=False, isApproved=False, user_id=request.user.id, isExpired=False).order_by("-dateCreated")[:10]
         return render(request, "pages/pending-bookings-transaction.html", {"pending_transactions": transactions, "length": len(transactions)})
     except Exception as ex:
         print(ex)

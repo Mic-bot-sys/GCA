@@ -1,7 +1,8 @@
 {% extends 'layouts/admin_base.html' %}
 
 {% block title %}
-<title>Approved Training Payments</title>
+<title>Trainings</title>
+
 {% endblock %}
 
 {% block head %} 
@@ -49,13 +50,13 @@
 <div id="cover-spin"></div>
 <main id="main" class="main">
     <div class="pagetitle">
-        <h1>Approved Training Payments</h1>
+        <h1>Trainings</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="">Transactions</a>
+                    <a >Trainings</a>
                 </li>
-                <li class="breadcrumb-item active">Approved Payments</li>
+                <li class="breadcrumb-item active">Available Trainings</li>
             </ol>
         </nav>
     </div>
@@ -126,10 +127,10 @@
                             <!-- End Modal Html -->
                             
                             <div class="card-body">
-                                <h5 class="card-title">Recent Transactions
+                                <h5 class="card-title">List of Trainings
                                 </h5>
-                                <div id="approvedListId">
-                                    {% include 'admin/transactions/_approved-training-payment-list.html' %}
+                                <div id="trainingsId">
+                                    {% include 'admin/training/_trainings-list.html' %}
                                 </div>
                             </div>
                         </div>
@@ -141,7 +142,7 @@
         </div>
     </section>
 
-  <div class="details" id="approved-detailsId">
+  <div class="details" id="trainingDetailsId">
 
   </div>
 
@@ -149,5 +150,93 @@
 </main>
 <!-- End #main -->
 
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    function onGetTrainingDetails(event, id){
+        event.preventDefault();
+    
+        $.ajax({
+            type: "GET",
+            url: "/admin-user/training/get/"+id,
+            success: function (result) {        
+                $('#trainingDetailsId').html(result)
+                    $('#trainingDetails').modal("show")      
+            },
+                error: function (err) {
+                  console.log(err)
+                }
+            });          
+      }
+
+      function onCloseModal(){
+        $('.modal').remove();
+        $('.modal-backdrop').remove();
+        $('body').removeClass( "modal-open" );
+    }
+    
+
+      
+    const previewPhoto = () => {
+        const input = document.getElementById('file-upload');
+      const file = input.files;
+      if (file) {
+          const fileReader = new FileReader();
+          const preview = document.getElementById('file-preview');
+          fileReader.onload = function (event) {
+              preview.setAttribute('src', event.target.result);
+          }
+          fileReader.readAsDataURL(file[0]);
+      }
+  }
+
+
+  function onUpdateTraining(event){
+    event.preventDefault();
+
+    let image = document.getElementById("file-preview").src;
+    image = image.split("base64,")[1]
+    let token = jQuery("[name=csrfmiddlewaretoken]").val();
+
+
+    var formData = new FormData();
+    formData.append('Id', $('#trId').val());
+    formData.append('name', $('#floatingTitleId').val());
+    formData.append('summary', $('#floatingSummaryId').val());
+    formData.append('price', $('#floatingPriceId').val());
+    formData.append('accessLink', $('#floatingLinkId').val());
+    formData.append('description', $('#floatingDescriptionId').val());
+    formData.append('image', image);
+    formData.append('csrfmiddlewaretoken', token);
+
+
+    $.ajax({
+        type: "POST",
+        url: "{% url 'admin_training:update-details' %}",
+        headers: {
+            'X-CSRF-Token': token 
+       },
+        processData: false,
+        contentType: false,
+        mimeType: "multipart/form-data",
+        data: formData,
+        success: function (result) {        
+            //onCloseModal()
+            $('#trainingDetails').modal('hide');
+          result = JSON.parse(result)        
+          result.message && Swal.fire(
+            'Updated!',
+            `${result.message}`,
+            'success'
+          )
+      
+        },
+            error: function (err) {
+              console.log(err)
+            }
+        });
+        
+  }
+</script>
 {% endblock %}

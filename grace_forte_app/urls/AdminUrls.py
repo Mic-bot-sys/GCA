@@ -20,4 +20,5 @@ urlpatterns = [
     path('booking/approved/<str:id>/', approve_booking_payment, name="approve-booking-payment"),
     path('approved/get/<str:id>/', approved_training_payment_details, name="approve-training-payment-details"),
     path('booking/approved/get/<str:id>/', approved_booking_payment_details, name="approve-booking-payment-details"),
+    
 ]

@@ -110,9 +110,6 @@ function onApprove(event, id, index){
                             'Transaction Approved.',
                             'success'
                           )
-
-                          
-                        // $('#pendingListId').load('/authenticate/pending/partial');
                     }
            
                     },
@@ -303,10 +300,8 @@ function onGetApprovedBookingTransactionDetails(event, id){
 }
 
 
-function onCloseModal(){
-    $('.modal').remove();
-    $('.modal-backdrop').remove();
-    $('body').removeClass( "modal-open" );
+function onCloseModal(id){
+    $(`#${id}`).modal('hide');
 }
 
 

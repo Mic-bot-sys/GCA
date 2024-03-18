@@ -90,9 +90,10 @@ def approved_booking_payment_details(request, id):
         print(ex)
         
         
+        
 @login_required(login_url=login_url)
 def approve_training_payment(request, id):
-    try:        
+    try:
         rNumber = random.randint(1000000, 9999999)
         transaction = TrainingPayment.objects.get(pk=id)
         transaction.paymentStatus = "Approved"
@@ -121,3 +122,6 @@ def approve_booking_payment(request, id):
         return JsonResponse({"message": "Transaction Approved Successfully", "status": "200"})
     except Exception as ex:
         print(ex)
+        
+        
+        

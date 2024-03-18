@@ -1,7 +1,8 @@
 {% extends 'layouts/admin_base.html' %}
 
 {% block title %}
-<title>Approved Training Payments</title>
+<title>Services</title>
+
 {% endblock %}
 
 {% block head %} 
@@ -49,13 +50,13 @@
 <div id="cover-spin"></div>
 <main id="main" class="main">
     <div class="pagetitle">
-        <h1>Approved Training Payments</h1>
+        <h1>Service</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="">Transactions</a>
+                    <a >Services</a>
                 </li>
-                <li class="breadcrumb-item active">Approved Payments</li>
+                <li class="breadcrumb-item active">Available Services</li>
             </ol>
         </nav>
     </div>
@@ -126,10 +127,10 @@
                             <!-- End Modal Html -->
                             
                             <div class="card-body">
-                                <h5 class="card-title">Recent Transactions
+                                <h5 class="card-title">List of Services
                                 </h5>
-                                <div id="approvedListId">
-                                    {% include 'admin/transactions/_approved-training-payment-list.html' %}
+                                <div id="servicesId">
+                                    {% include 'admin/service/_services-list.html' %}
                                 </div>
                             </div>
                         </div>
@@ -141,7 +142,7 @@
         </div>
     </section>
 
-  <div class="details" id="approved-detailsId">
+  <div class="details" id="detailsId">
 
   </div>
 
