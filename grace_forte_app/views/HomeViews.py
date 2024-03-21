@@ -1,12 +1,16 @@
 from django.shortcuts import render
+from check_mail import EmailNotify
 from grace_forte_app.models.ServicePaymentModel import ServicePayment
 from grace_forte_app.models.TrainingPaymentModel import TrainingPayment
 from django.contrib.auth.decorators import login_required
 
+from imgtempmail import ImgTemplateEmailNotify
+from tempmail import TemplateEmailNotify
+
 
 
 # Create your views here
-def home(request):
+def home(request):    
     return render(request, "pages/index.html")
 
 
