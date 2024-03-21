@@ -103,7 +103,9 @@ function onApprove(event, id, index){
                             'error'
                           )
                     }else{
-                        $("tr[data-index='" + index +"']").remove();
+                        console.log(index)
+                        $('#data-row-' + index).remove();
+                        // $("tr[data-index='" + index +"']").remove();
                         $('#cover-spin').hide(0);
                         Swal.fire(
                             'Approved!',
@@ -155,7 +157,8 @@ function onApproveBooking(event, id, index){
                             'error'
                           )
                     }else{
-                        $("tr[data-index='" + index +"']").remove();
+                        // $("tr[data-index='" + index +"']").remove();
+                        $('#data-row-'+index).remove();
                         $('#cover-spin').hide(0);
                         Swal.fire(
                             'Approved!',

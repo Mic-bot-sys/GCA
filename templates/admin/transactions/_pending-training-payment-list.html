@@ -14,7 +14,7 @@
     </thead>
     <tbody>
         {% for data in pending_transactions %}
-      <tr>
+      <tr id="data-row-{{forloop.counter0}}"> 
         <td>{{data.user.user_profile.lastName}} {{data.user.user_profile.firstName}}</td>
         <td>{{data.enrolledCourse.title|truncatechars:17}}</td> 
         <td>₦ {{data.expectedAmount|intcomma}}</td>
