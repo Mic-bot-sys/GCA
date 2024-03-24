@@ -6,6 +6,7 @@ import smtplib
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 
+
 html = '''
     <html>
         <body>
@@ -47,15 +48,15 @@ def TemplateEmailNotify(receiver:str, subject:str, body:str, name: str=""):
     
 
 
-def ConfirmedTemplateEmailNotify(receiver:str, subject:str, body:str, name: str=""):
+def ConfirmedTemplateEmailNotify(receiver, subject, body, name, instance):
     try:
         email_sender = "toluondrums@gmail.com"
         email_password = "elnm sfgs atad egvw"
         email_receiver = receiver
 
         subject = subject
-        
-        html_message = render_to_string('bussy.html', {"name": name, "message": body})
+        amount = f"{instance.expectedAmount:,}"
+        html_message = render_to_string('bussy.html', {"name": name, "message": body, "product": instance.enrolledCourse.title, "amount": amount})
         # html_message = render_to_string('mail_template.html', {'context': 'values'})
         # plain_message = strip_tags(html_message)
 
