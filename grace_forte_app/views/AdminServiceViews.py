@@ -1,4 +1,5 @@
-from datetime import datetime
+from django.utils import timezone
+from decimal import Decimal
 import json
 import random
 from django.http import JsonResponse
@@ -35,3 +36,38 @@ def services(request):
         print(ex)
         
         
+    
+@login_required(login_url=login_url)
+def getServiceDetails(request, id):
+    try:
+        if request.method == "GET":            
+            service = ServiceRendered.objects.get(pk=id)
+            return render(request, "admin/service/_service-details.html", {"service": service})
+    except Exception as ex:
+        print(ex)
+        
+        
+
+@login_required
+def updateService(request):
+    try:
+        body = request.POST
+        Id = body["Id"]
+        name = body["name"]
+        summary = body["summary"]
+        price = body["price"]
+        description = body["description"]
+        image = body["image"]
+           
+        service = ServiceRendered.objects.get(pk=Id)
+        service.title=name
+        service.summary=summary
+        service.description=description
+        service.price=Decimal(price)
+        service.imageBase=image
+        service.dateUpdated= timezone.now()
+        service.save()
+        
+        return JsonResponse({"message": "Service updated Successfully", "status": "200"})
+    except Exception as ex:
+        print(ex)

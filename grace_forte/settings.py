@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'grace_forte_app',
+    'django_apscheduler'
 ]
 
 MIDDLEWARE = [
@@ -163,3 +164,5 @@ EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
 EMAIL_HOST_USER = '5a15dc37410610'
 EMAIL_HOST_PASSWORD = '8e55b3d6dbf431'
 EMAIL_PORT = '2525'
+
+APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
