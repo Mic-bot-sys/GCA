@@ -27,6 +27,6 @@ def training_enrollment(request, id):
 @login_required
 def approved_training_receipt(request, id):
     if request.user.is_authenticated:
-        receipt = TrainingPayment.objects.filter(Id=id, isDeleted=False, isApproved=True).first()
+        receipt = TrainingPayment.objects.filter(Id=id, isDeleted=False, isApproved=True, isExpired=False).first()
         dateApproved = receipt.getDateApprovedOnly()
         return render(request, "receipts/approved-training-transaction-receipt.html", {"receipt": receipt, "dateApproved": dateApproved})

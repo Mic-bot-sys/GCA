@@ -14,7 +14,10 @@ urlpatterns = [
     path('trainings/', include('grace_forte_app.urls.TrainingsUrls')),
     path('trainings-payment/', include('grace_forte_app.urls.TrainingsPaymentUrls')),
     path('services-payment/', include('grace_forte_app.urls.ServicesPaymentUrls')),
-    path('user-profile/', include('grace_forte_app.urls.UserProfileUrls')),
+    path('user-profile/', include('grace_forte_app.urls.UserProfileUrls')),    
+    
+    path('admin-user/training/', include('grace_forte_app.urls.AdminTrainingUrls')),
+    path('admin-user/service/', include('grace_forte_app.urls.AdminServiceUrls')),
 ]
 
 urlpatterns+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

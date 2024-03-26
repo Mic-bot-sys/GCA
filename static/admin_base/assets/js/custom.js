@@ -103,7 +103,62 @@ function onApprove(event, id, index){
                             'error'
                           )
                     }else{
-                        $("tr[data-index='" + index +"']").remove();
+                        console.log(index)
+                        $('#data-row-' + index).remove();
+                        // $("tr[data-index='" + index +"']").remove();
+                        $('#cover-spin').hide(0);
+                        Swal.fire(
+                            'Approved!',
+                            'Transaction Approved.',
+                            'success'
+                          )
+                    }
+           
+                    },
+                    error: function (data) {
+                    console.log(data);
+                    alert("There was a problem  while trying to Login");
+                    }
+                });
+        }
+      })
+
+ 
+}
+
+
+
+function onApproveBooking(event, id, index){
+    event.preventDefault();
+
+    Swal.fire({
+        title: 'Are you sure you want to Approve this Transaction?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        ApproveButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        ApproveButtonText: 'Yes, Approve!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            $('#cover-spin').show(0);
+    
+
+            $.ajax({
+                type: "GET",
+                url: `/admin-user/booking/approved/${id}/`,
+                success: function (result) {
+                    if (result.Error){
+                        $('#cover-spin').hide(0);
+                        alert(result.Error);
+                        Swal.fire(
+                            'There was a problem while trying to Approve the Transaction!',
+                            'Transaction Error.',
+                            'error'
+                          )
+                    }else{
+                        // $("tr[data-index='" + index +"']").remove();
+                        $('#data-row-'+index).remove();
                         $('#cover-spin').hide(0);
                         Swal.fire(
                             'Approved!',
@@ -159,6 +214,36 @@ function onGetPendingTrainingTransactionDetails(event, id){
 
 
 
+function onGetPendingBookingTransactionDetails(event, id){
+    event.preventDefault();
+    
+    $.ajax({
+        type: "GET",
+        url: `/admin-user/booking/pending/${id}/`,
+        success: function (result) {
+            if (result.Error){
+                $('#cover-spin').hide(0);
+                alert(result.Error);
+                Swal.fire(
+                    'There was a problem while trying to get the Transaction!',
+                    '',
+                    'error'
+                  )
+            }else{                
+                $('#detailsId').html(result)
+                $('#viewId').modal("show")
+            }
+   
+            },
+            error: function (data) {
+            console.log(data);
+            alert("There was a problem  while trying to Get the Data");
+            }
+        });
+}
+
+
+
 function onGetApprovedTrainingTransactionDetails(event, id){
     event.preventDefault();
     
@@ -188,10 +273,38 @@ function onGetApprovedTrainingTransactionDetails(event, id){
 }
 
 
-function onCloseModal(){
-    $('.modal').remove();
-    $('.modal-backdrop').remove();
-    $('body').removeClass( "modal-open" );
+
+function onGetApprovedBookingTransactionDetails(event, id){
+    event.preventDefault();
+    
+    $.ajax({
+        type: "GET",
+        url: `/admin-user/booking/approved/get/${id}/`,
+        success: function (result) {
+            if (result.Error){
+                $('#cover-spin').hide(0);
+                alert(result.Error);
+                Swal.fire(
+                    'There was a problem while trying to get the Transaction!',
+                    'Transaction Error.',
+                    'error'
+                  )
+            }else{                
+                $('#approved-detailsId').html(result)
+                $('#approvedId').modal("show")
+            }
+   
+            },
+            error: function (data) {
+            console.log(data);
+            alert("There was a problem  while trying to Get the Data");
+            }
+        });
+}
+
+
+function onCloseModal(id){
+    $(`#${id}`).modal('hide');
 }
 
 

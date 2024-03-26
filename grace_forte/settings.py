@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'grace_forte_app',
+    'django_apscheduler'
 ]
 
 MIDDLEWARE = [
@@ -129,6 +130,7 @@ USE_I18N = True
 
 USE_TZ = False
 
+DATA_UPLOAD_MAX_MEMORY_SIZE = 5242880
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
@@ -147,3 +149,20 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ADMIN_LOGIN_URL = "/auth-user/"
 
 LOGIN_URL = "/auth/"
+
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_USE_TLS = True
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'toluondrums@gmail.com'
+# EMAIL_HOST_PASSWORD = 'gjkx hkht najh gwbc'
+# DEFAULT_FROM_EMAIL = "Grace Forte"
+
+
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = '5a15dc37410610'
+EMAIL_HOST_PASSWORD = '8e55b3d6dbf431'
+EMAIL_PORT = '2525'
+
+APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"

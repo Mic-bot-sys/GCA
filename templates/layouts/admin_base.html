@@ -6,7 +6,10 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
+  {% block title %}
   <title>Dashboard</title>
+  {% endblock %}
+
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -127,11 +130,17 @@
   </header><!-- End Header -->
 
   <!-- ======= Sidebar ======= -->
+  <style>
+    .bactive{
+      background-color: #dfe1e4;
+    }
+  </style>
   <aside id="sidebar" class="sidebar">
+    
 
     <ul class="sidebar-nav" id="sidebar-nav">
 
-      <li class="nav-item">
+      <li class="nav-item {% if request.resolver_match.view_name == 'the_admin:dashboard' %}bactive{% endif %}">
         <a class="nav-link " href="{% url 'the_admin:dashboard' %}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
@@ -143,12 +152,22 @@
           <i class="bi bi-menu-button-wide"></i><span>Transactions</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
+          <li class="{%if request.resolver_match.view_name == 'the_admin:pending-booking-payments'  %}bactive{% endif %}">
+            <a href="{% url 'the_admin:pending-booking-payments' %}">
+              <i class="bi bi-circle"></i><span>Pending Booking Payments</span>
+            </a>
+          </li>
+          <li class="{% if request.resolver_match.view_name == 'the_admin:approved-booking-payments' %}bactive{% endif %}">
+            <a href="{% url 'the_admin:approved-booking-payments' %}">
+              <i class="bi bi-circle"></i><span>Approved Booking Payments</span>
+            </a>
+          </li>
+          <li class="{% if request.resolver_match.view_name == 'the_admin:pending-training-payments' %}bactive{% endif %}">
             <a href="{% url 'the_admin:pending-training-payments' %}">
               <i class="bi bi-circle"></i><span>Pending Training Payments</span>
             </a>
           </li>
-          <li>
+          <li class="{% if request.resolver_match.view_name == 'the_admin:approved-training-payments' %}bactive{% endif %}">
             <a href="{% url 'the_admin:approved-training-payments' %}">
               <i class="bi bi-circle"></i><span>Approved Training Payments</span>
             </a>
@@ -163,13 +182,13 @@
         </a>
         <ul id="services-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="{% url 'the_admin:pending-training-payments' %}">
+            <a href="{% url 'admin_service:create-service' %}">
               <i class="bi bi-circle"></i><span>Create New Service</span>
             </a>
           </li>
           <li>
-            <a href="{% url 'the_admin:pending-training-payments' %}">
-              <i class="bi bi-circle"></i><span>View Available Services</span>
+            <a href="{% url 'admin_service:all-services' %}">
+              <i class="bi bi-circle"></i><span>Available Services</span>
             </a>
           </li>
         </ul>
@@ -178,17 +197,17 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Training</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-journal-text"></i><span>Trainings</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="forms-elements.html">
-              <i class="bi bi-circle"></i><span>Add New Training</span>
+            <a href="{% url 'admin_training:create-training' %}">
+              <i class="bi bi-circle"></i><span>Create New Training</span>
             </a>
           </li>
           <li>
-            <a href="forms-layouts.html">
-              <i class="bi bi-circle"></i><span>Available Training</span>
+            <a href="{% url 'admin_training:all-training' %}">
+              <i class="bi bi-circle"></i><span>Available Trainings</span>
             </a>
           </li>
          

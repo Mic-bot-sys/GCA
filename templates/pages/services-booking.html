@@ -554,7 +554,7 @@
                                                     <div class="select-caret-down-wrapper">
                                                         <i aria-hidden="true" class="eicon-caret-down"></i>
                                                     </div>
-                                                    <select name="form_fields[field_6170a0b]" id="durationId" class="elementor-field-textual elementor-size-md" required="required" aria-required="true">
+                                                    <select disabled name="duration" id="durationId" class="elementor-field-textual elementor-size-md" required="required" aria-required="true">
                                                         <option value="{{request.session.duration}}">{{request.session.duration}} hr</option>
                                                     </select>
                                                 </div>
@@ -608,7 +608,8 @@
                     title: "Proof of Payment!",
                     text: "Do not forget to upload your Proof of Payment after successfully making Payments.",
                     imageUrl: "{% static 'pagereceipt.jpg' %}",
-                    imageSize: "150x150"
+                    imageSize: "150x150",
+                    confirmButtonColor: "#0046ae",
                   });
             })();
            

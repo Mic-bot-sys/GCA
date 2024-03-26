@@ -4,16 +4,16 @@
 
 
 {% block title %}
-<title>Pending Bookings</title>
+<title>Pending Booking Transactions</title>
 {% endblock %}
 
 {% block head %}
     {% include 'partials/_servicesHeadSectionPartial.html' %}
-      <!-- jvectormap  -->
-      <link rel="stylesheet" href="https://bootstrapdemos.wrappixel.com/spike/dist/assets/libs/jvectormap/jquery-jvectormap.css">
-      
-      <!-- Core Css -->
-      <link rel="stylesheet" href="https://bootstrapdemos.wrappixel.com/spike/dist/assets/css/styles.css" />
+      <link href="{% static 'asse/plugins/global/plugins.bundle.css' %}" rel="stylesheet" type="text/css" />
+      <link href="{% static 'asse/css/style.bundle.css' %}" rel="stylesheet" type="text/css" />
+      <link href="{% static 'asse/plugins/custom/fullcalendar/fullcalendar.bundle.css' %}" rel="stylesheet" type="text/css" />
+      <link href="{% static 'asse/plugins/custom/datatables/datatables.bundle.css' %}" rel="stylesheet" type="text/css" />
+    
 
 {% endblock %}
 
@@ -23,431 +23,140 @@
 {% endblock %}
 
 {% block content %}
-        <div data-elementor-type="wp-page" data-elementor-id="1961" class="elementor elementor-1961" data-elementor-post-type="page">
+<div data-elementor-type="wp-page" data-elementor-id="1961" class="elementor elementor-1961" data-elementor-post-type="page">
 
-            <section class="elementor-section elementor-top-section elementor-element elementor-element-3acb1acc elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-                data-id="3acb1acc"
-                data-element_type="section" >
-               
-               <div class="elementor-container elementor-column-gap-no">
-    <div class="container mt-5 mb-5">
-        <div class="col-12" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
-          <div class="card mb-0">
-            <div class="card-body">
-              <div class="d-md-flex justify-content-between mb-9">
-                <div class="mb-9 mb-md-0">
-                  <h5 class="card-title">Pending Booking Transactions</h5>
-                  <p class="card-subtitle mb-0">This contains the list of all the training enrollment that has not been approved yet</p>
-                </div>
-                <div class="d-flex align-items-center">
-                  <form class="position-relative me-3 w-100">
-                    <input type="text" class="form-control search-chat py-2 ps-5" id="text-srh"
-                      placeholder="Search">
-                    <i
-                      class="ti ti-search position-absolute top-50 start-0 translate-middle-y fs-6 text-dark ms-3"></i>
-                  </form>
-                </div>
-              </div>
-              <div class="table-responsive overflow-x-auto latest-reviews-table">
-                <table class="table mb-0 align-middle text-nowrap">
-                  <thead class="text-dark fs-4">
-                    <tr>
-                      <th>Products</th>
-                      <th>Customer</th>
-                      <th>Reviews</th>
-                      <th>Status</th>
-                      <th>Time</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="d-flex align-items-center product text-truncate">
-                          <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/products/product-5.png" class="img-fluid flex-shrink-0"
-                            width="60" height="60">
-                          <div class="ms-3 product-title">
-                            <h6 class="fs-4 mb-0 text-truncate-2">iPhone 13 pro max-Pacific Blue-128GB storage</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex align-items-center text-truncate">
-                          <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/profile/user-2.jpg" alt=""
-                            class="img-fluid rounded-circle flex-shrink-0" width="32" height="32">
-                          <div class="ms-7">
-                            <h5 class="mb-1 fs-4">Arlene McCoy</h5>
-                            <h6 class="mb-0 fw-light">macoy@arlene.com</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="product-reviews">
-                          <ul class="list-unstyled d-flex align-items-center mb-0">
-                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
-                                  class="text-warning"></iconify-icon></a></li>
-                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
-                                  class="text-warning"></iconify-icon></a></li>
-                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
-                                  class="text-warning"></iconify-icon></a></li>
-                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon
-                                  icon="solar:star-bold-duotone" class="text-warning"></iconify-icon></a></li>
-                            <li><a class="" href="javascript:void(0)"><iconify-icon icon="solar:star-line-duotone"
-                                  class="text-warning"></iconify-icon></a>
-                            </li>
-                          </ul>
-                          <p class="text-dark mb-0 fw-normal text-truncate-2">
-                            This theme is great. Clean and easy to
-                            understand. Perfect for those who don't have<br>
-                            time to... <a href="#">See more</a>
-                          </p>
-                        </div>
-                      </td>
-                      <td>
-                        <span
-                          class="badge rounded-pill bg-success-subtle text-success border-success border">Confirmed</span>
-                      </td>
-                      <td>
-                        <p class="mb-0">Nov 8</p>
-                      </td>
-                      <td>
-                        <div class="dropdown dropstart">
-                          <a href="#" class="text-muted " id="dropdownMenuButton" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="ti ti-dots-vertical fs-5"></i>
-                          </a>
-                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
-                                  class="fs-4 ti ti-plus"></i>Add</a>
-                            </li>
-                            <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
-                                  class="fs-4 ti ti-edit"></i>Edit</a>
-                            </li>
-                            <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
-                                  class="fs-4 ti ti-trash"></i>Delete</a>
-                            </li>
-                          </ul>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex align-items-center product text-truncate">
-                          <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/products/product-6.png" class="img-fluid flex-shrink-0"
-                            width="60" height="60">
-                          <div class="ms-3 product-title">
-                            <h6 class="fs-4 mb-0 text-truncate-2">Apple MacBook Pro 13 inch-M1-8/256GB-space</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex align-items-center text-truncate">
-                          <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/profile/user-3.jpg" alt=""
-                            class="img-fluid rounded-circle flex-shrink-0" width="32" height="32">
-                          <div class="ms-7">
-                            <h5 class="mb-1 fs-4">Jerome Bell</h5>
-                            <h6 class="mb-0 fw-light">belljerome@yahoo.com</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="product-reviews">
-                          <ul class="list-unstyled d-flex align-items-center mb-0">
-                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
-                                  class="text-warning"></iconify-icon></a></li>
-                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
-                                  class="text-warning"></iconify-icon></a></li>
-                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
-                                  class="text-warning"></iconify-icon></a></li>
-                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
-                                  class="text-warning"></iconify-icon></a></li>
-                            <li><a class="" href="javascript:void(0)"><iconify-icon icon="solar:star-line-duotone"
-                                  class="text-warning"></iconify-icon></a>
-                            </li>
-                          </ul>
-                          <p class="text-dark mb-0 fw-normal text-truncate-2">
-                            It's a Mac, after all. Once you've gone Mac,there's no going back. My first Mac
-                            lastedover nine years.
-                          </p>
-                        </div>
-                      </td>
-                      <td>
-                        <span
-                          class="badge rounded-pill bg-warning-subtle text-warning border-warning border">Pending</span>
-                      </td>
-                      <td>
-                        <p class="mb-0">Nov 8</p>
-                      </td>
-                      <td>
-                        <div class="dropdown dropstart">
-                          <a href="#" class="text-muted " id="dropdownMenuButton" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="ti ti-dots-vertical fs-5"></i>
-                          </a>
-                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
-                                  class="fs-4 ti ti-plus"></i>Add</a>
-                            </li>
-                            <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
-                                  class="fs-4 ti ti-edit"></i>Edit</a>
-                            </li>
-                            <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
-                                  class="fs-4 ti ti-trash"></i>Delete</a>
-                            </li>
-                          </ul>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
+<section style="padding-top: 0 !important" class="elementor-section elementor-top-section elementor-element elementor-element-3acb1acc elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+    data-id="3acb1acc"
+    data-element_type="section" >
+    
+    <style>
+      @media (max-width: 576px) {
+        .transactions{
+          width: 100% !important;
+        }
+      }
+
+      @media(min-width: 577px) and (max-width: 768px){
+        .transactions{
+          width: 100% !important;
+        }
+      }
+
+      @media(min-width: 769px) and (max-width: 1024px){
+        .transactions{
+          width: 100% !important;
+          margin: 1rem 0 !important;
+        }
+      }
+    </style>
+    <div class="elementor-container elementor-column-gap-no">
+   <!--begin::Col-->
+								<div class="col-xl-12 mt-4 mb-2 transactions">
+									<!--begin::List Widget 4-->
+									<div class="card card-xl-stretch mb-5 mb-xl-8">
+										<!--begin::Header-->
+										<div class="card-header border-0 pt-5">
+											<h3 class="card-title align-items-start flex-column">
+												<span class="card-label fw-bolder text-dark">Pending Booking Transactions</span>
+												<span class="text-muted mt-1 fw-bold fs-7">List of Service Bookings that has not been approved </span>
+											</h3>
                       
-                      <td>
-                        <div class="d-flex align-items-center product text-truncate">
-                          <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/products/product-7.png" class="img-fluid flex-shrink-0"
-                            width="60" height="60">
-                          <div class="ms-3 product-title">
-                            <h6 class="fs-4 mb-0 text-truncate-2">PlayStation 5 DualSense Wireless Controller</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex align-items-center text-truncate">
-                          <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/profile/user-4.jpg" alt=""
-                            class="img-fluid rounded-circle flex-shrink-0" width="32" height="32">
-                          <div class="ms-7">
-                            <h5 class="mb-1 fs-4">Jacob Jones</h5>
-                            <h6 class="mb-0 fw-light">jones009@hotmail.com</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="product-reviews">
-                          <ul class="list-unstyled d-flex align-items-center mb-0">
-                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
-                                  class="text-warning"></iconify-icon></a></li>
-                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
-                                  class="text-warning"></iconify-icon></a></li>
-                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
-                                  class="text-warning"></iconify-icon></a></li>
-                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon
-                                  icon="solar:star-bold-duotone" class="text-warning"></iconify-icon></a></li>
-                            <li><a class="" href="javascript:void(0)"><iconify-icon icon="solar:star-line-duotone"
-                                  class="text-warning"></iconify-icon></a>
-                            </li>
-                          </ul>
-                          <p class="text-dark mb-0 fw-normal text-truncate-2">
-                            The best experience we could hope for.Customer service team is amazing and thequality
-                            of their products... <a href="#">See more</a>
-                          </p>
-                        </div>
-                      </td>
-                      <td>
-                        <span
-                          class="badge rounded-pill bg-warning-subtle text-warning border-warning border">Pending</span>
-                      </td>
-                      <td>
-                        <p class="mb-0">Nov 8</p>
-                      </td>
-                      <td>
-                        <div class="dropdown dropstart">
-                          <a href="#" class="text-muted " id="dropdownMenuButton" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="ti ti-dots-vertical fs-5"></i>
-                          </a>
-                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
-                                  class="fs-4 ti ti-plus"></i>Add</a>
-                            </li>
-                            <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
-                                  class="fs-4 ti ti-edit"></i>Edit</a>
-                            </li>
-                            <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
-                                  class="fs-4 ti ti-trash"></i>Delete</a>
-                            </li>
-                          </ul>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                    
-                      <td>
-                        <div class="d-flex align-items-center product text-truncate">
-                          <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/products/product-8.png" class="img-fluid flex-shrink-0"
-                            width="60" height="60">
-                          <div class="ms-3 product-title">
-                            <h6 class="fs-4 mb-0 text-truncate-2">Amazon Basics Mesh, Mid-Back, Swivel Office De...
-                            </h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex align-items-center text-truncate">
-                          <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/profile/user-5.jpg" alt=""
-                            class="img-fluid rounded-circle flex-shrink-0" width="32" height="32">
-                          <div class="ms-7">
-                            <h5 class="mb-1 fs-4">Annette Black</h5>
-                            <h6 class="mb-0 fw-light">blackanne@yahoo.com</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="product-reviews">
-                          <ul class="list-unstyled d-flex align-items-center mb-0">
-                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
-                                  class="text-warning"></iconify-icon></a></li>
-                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
-                                  class="text-warning"></iconify-icon></a></li>
-                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
-                                  class="text-warning"></iconify-icon></a></li>
-                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon
-                                  icon="solar:star-bold-duotone" class="text-warning"></iconify-icon></a></li>
-                            <li><a class="" href="javascript:void(0)"><iconify-icon icon="solar:star-line-duotone"
-                                  class="text-warning"></iconify-icon></a>
-                            </li>
-                          </ul>
-                          <p class="text-dark mb-0 fw-normal text-truncate-2">
-                            The controller is quite comfy for me. Despiteits increased size, the controller still
-                            fits well <br>in my hands.
-                          </p>
-                        </div>
-                      </td>
-                      <td>
-                        <span
-                          class="badge rounded-pill bg-success-subtle text-success border-success border">Confirmed</span>
-                      </td>
-                      <td>
-                        <p class="mb-0">Nov 8</p>
-                      </td>
-                      <td>
-                        <div class="dropdown dropstart">
-                          <a href="#" class="text-muted " id="dropdownMenuButton" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="ti ti-dots-vertical fs-5"></i>
-                          </a>
-                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
-                                  class="fs-4 ti ti-plus"></i>Add</a>
-                            </li>
-                            <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
-                                  class="fs-4 ti ti-edit"></i>Edit</a>
-                            </li>
-                            <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
-                                  class="fs-4 ti ti-trash"></i>Delete</a>
-                            </li>
-                          </ul>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>                 
-                      <td>
-                        <div class="d-flex align-items-center product text-truncate">
-                          <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/products/product-9.png" class="img-fluid flex-shrink-0"
-                            width="60" height="60">
-                          <div class="ms-3 product-title">
-                            <h6 class="fs-4 mb-0 text-truncate-2">Sony X85J 75 Inch Sony 4K Ultra HD LED Smart G...
-                            </h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex align-items-center text-truncate">
-                          <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/profile/user-6.jpg" alt=""
-                            class="img-fluid rounded-circle flex-shrink-0" width="32" height="32">
-                          <div class="ms-7">
-                            <h5 class="mb-1 fs-4">Albert Flores</h5>
-                            <h6 class="mb-0 fw-light">albertflo9@gmail.com</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="product-reviews">
-                          <ul class="list-unstyled d-flex align-items-center mb-0">
-                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
-                                  class="text-warning"></iconify-icon></a></li>
-                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
-                                  class="text-warning"></iconify-icon></a></li>
-                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon icon="solar:star-bold"
-                                  class="text-warning"></iconify-icon></a></li>
-                            <li><a class="me-1 " href="javascript:void(0)"><iconify-icon
-                                  icon="solar:star-bold-duotone" class="text-warning"></iconify-icon></a></li>
-                            <li><a class="" href="javascript:void(0)"><iconify-icon icon="solar:star-line-duotone"
-                                  class="text-warning"></iconify-icon></a>
-                            </li>
-                          </ul>
-                          <p class="text-dark mb-0 fw-normal text-truncate-2">
-                            This theme is great. Perfect for those whodon't have time to start everything from
-                            <br>scratch.
-                          </p>
-                        </div>
-                      </td>
-                      <td>
-                        <span
-                          class="badge rounded-pill bg-warning-subtle text-warning border-warning border">Pending</span>
-                      </td>
-                      <td>
-                        <p class="mb-0">Nov 8</p>
-                      </td>
-                      <td>
-                        <div class="dropdown dropstart">
-                          <a href="#" class="text-muted " id="dropdownMenuButton" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="ti ti-dots-vertical fs-5"></i>
-                          </a>
-                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
-                                  class="fs-4 ti ti-plus"></i>Add</a>
-                            </li>
-                            <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
-                                  class="fs-4 ti ti-edit"></i>Edit</a>
-                            </li>
-                            <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i
-                                  class="fs-4 ti ti-trash"></i>Delete</a>
-                            </li>
-                          </ul>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="d-flex align-items-center justify-content-between mt-10">
-                <p class="mb-0 fw-normal">1-6 of 32</p>
-                <nav aria-label="Page navigation example">
-                  <ul class="pagination mb-0 align-items-center">
-                    <li class="page-item"><a
-                        class="page-link border-0 d-flex align-items-center text-muted fw-normal"
-                        href="#"><iconify-icon icon="solar:alt-arrow-left-line-duotone"
-                          class="fs-5"></iconify-icon>Previous</a></li>
-                    <li class="page-item"><a class="page-link border-0 d-flex align-items-center fw-normal"
-                        href="#">Next<iconify-icon icon="solar:alt-arrow-right-line-duotone"
-                          class="fs-5"></iconify-icon></a></li>
-                  </ul>
-                </nav>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+										</div>
+										<!--end::Header-->
+										<!--begin::Body-->
+										<div class="card-body pt-5" id="pendingTrainingsId">
+											<!--begin::Item-->
+                      {% if length == 0 %}
+                      <div class="row mb-7 text-center">
+                        <p class="text-muted">No Pending Transactions yet</p>
+                      </div>
+                      {% endif %}
+                      {% for transaction in pending_transactions %}
+                      <script>
+                        function myFunction(x) {
+                          if (x.matches) { // If media query matches
+                            let z =document.createElement("div")
+                            z.innerHTML = `<div class="d-flex align-items-sm-center mb-7">
+                              <!--begin::Symbol-->
+                              <div class="symbol symbol-50px me-5">
+                                <span class="symbol-label">
+                                  <img loading="lazy" src="data:img/webp;base64,{{transaction.service.imageBase}}" class="h-50 align-self-center" alt="" />
+                                </span>
+                              </div>
+                              <!--end::Symbol-->
+                              <!--begin::Section-->
+                              
+                              <div class="d-flex align-items-center flex-row-fluid flex-wrap">
+                                <div class="flex-grow-1 me-2">
+                                  <a href="#" class="text-gray-800 text-hover-primary fs-6 fw-bolder">{{transaction.service.title|truncatechars:10}}</a>
+                                  <span class="text-muted fw-bold d-block fs-7">{{transaction.account.accountName|truncatechars:7}}</span>
+                                  <span class="text-muted fw-bold d-block fs-7">{{transaction.account.bank|truncatechars:10}}</span>
+                                </div>
+                                <div class="d-flex flex-column">                            
+                                <span class="fw-bolder my-2" style="text-align: end !important">₦{{transaction.expectedAmount|intcomma}}</span>
+                                <span class="fw-bolder my-2" style="text-align: end !important">{{transaction.dateCreated|timesince|truncatechars:17}} ago</span>
+                                </div>
+                              </div>
+                             
+                              <!--end::Section-->
+                            </div>`
+                            document.getElementById("pendingTrainingsId").appendChild(z)
+                          } else {
+                            let v =document.createElement("div")
+                            v.innerHTML = `<div class="d-flex align-items-sm-center mb-7">
+                              <!--begin::Symbol-->
+                              <div class="symbol symbol-50px me-5">
+                                <span class="symbol-label">
+                                  <img loading="lazy" src="data:img/webp;base64,{{transaction.service.imageBase}}" class="h-50 align-self-center" alt="" />
+                                </span>
+                              </div>
+                              <!--end::Symbol-->
+                              <!--begin::Section-->
+                              
+                              <div class="d-flex align-items-center flex-row-fluid flex-wrap">
+                                <div class="flex-grow-1 me-2">
+                                  <a href="#" class="text-gray-800 text-hover-primary fs-6 fw-bolder">{{transaction.service.title}}</a>
+                                  <span class="text-muted fw-bold d-block fs-7">{{transaction.account.accountName}}</span>
+                                  <span class="text-muted fw-bold d-block fs-7">{{transaction.account.bank|truncatechars:15}}</span>
+                                </div>
+                                <div class="d-flex flex-column align-items-end">                            
+                                <span class="badge badge-light fw-bolder my-2 fs-6" style="text-align: end !important">₦{{transaction.expectedAmount|intcomma}}</span>
+                                <span class="fw-bolder my-2" style="text-align: end !important">{{transaction.dateCreated|timesince}} ago</span>
+                                </div>
+                              </div>
+                             
+                              <!--end::Section-->
+                            </div>`
+                            document.getElementById("pendingTrainingsId").appendChild(v)
+                          }
+                        }
+                        
+                        // Create a MediaQueryList object
+                        var x = window.matchMedia("(max-width: 576px)")
+                        
+                        // Call listener function at run time
+                        myFunction(x);
+                        
+                        // Attach listener function on state changes
+                        x.addEventListener("change", function() {
+                          myFunction(x);
+                        });
+                      </script>
+											
+                      {% endfor %}
+											<!--end::Item-->
+										</div>
+										<!--end::Body-->
+									</div>
+									<!--end::List Widget 4-->
+								</div>
+								<!--end::Col-->
   </div>
-            </section>
+    </section>
 
+    
             
-        </div>
+</div>
 {% endblock %}
 
 
